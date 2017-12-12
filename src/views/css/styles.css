@@ -3342,6 +3342,22 @@ select.classic:focus {
 	#rq-form-wrapper {
 		margin-top:20px;
 	}
+	
+	#confirmation-block {
+		border:1px solid #355f93;
+		background:#eef5ff;
+		padding:20px;
+		width: 100%;
+		max-width: 900px;
+	}
+	
+	#confirmation-block p{
+		margin-bottom:0;
+	}
+	
+	#confirmation-block a{
+		text-decoration:none;
+	}
 
 /*Tooltip*/
 
