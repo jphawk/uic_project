@@ -4,109 +4,171 @@ import App from '../App';
 import './css/styles.css';
 import Header from './header';
 
-export default class RequesterPage extends Component {  
+export default class RequesterPage extends Component { 
+
+	tableRows = [];
+
+	userRequests = [];
+
+constructor(props) {
+	super(props);
+	this.state = {
+		name: '', langTo: '', langFrom: '', description: ''
+	};
 	
-	viewRequestDetails = (requestId) => {
-		this.props.history.push('/request/' + requestId);
-	}
 	
-	//Get own requests based on email
-	
-	getUserRequests = (userId) => {
-		var requests = JSON.parse(localStorage.getItem("requests"));
-		
-		for (var key in requests){
-			if (requests[key].requester == localStorage.getItem("loggedIn")){			
-		
-			//Correct user, build a table row
-				
-				
-				
-			}
+
+	this.getUserRequests();
+
+	if (this.userRequests.length > 0){
+
+		for (var key in this.userRequests){
+			this.tableRows.push(<tr key={key} onClick= {() => { this.viewRequestDetails(this.userRequests[key].id)}}> 
+					<td> {this.userRequests[key].title} </td>
+					<td> {this.userRequests[key].status} % ready </td>
+					<td> {this.userRequests[key].wordCount} </td>
+					<td> {this.userRequests[key].sample} </td>
+				</tr> );
 		}
+	}else{
+		this.tableRows.push(<tr colSpan="4"> No requests yet </tr>);
 	}
+}
 
-	render() {
-		return (
-			<div>
-				<Helmet>
-					<meta charset="utf-8" />
-					<title>Requestor's Dashboard</title>
-					<meta name="description" content="Requestor's Dashboard" />
-					<meta name="author" content="Team Translator" />
-				</Helmet>
+viewRequestDetails = (requestId) => {
+	this.props.history.push('/request/' + requestId);
+}
 
-				<Header />
+//Get own requests based on email
 
-				<div id="page-rq-dashboard" className="page">
-					<div id="content" className="dashboard">
-						<h1>Dashboard</h1>
-						<h2>Your active translation requests</h2>
-						<div id="rq-table-wrapper">
-							<table id="rq-table">
-								<tr>
-									<th colspan="4">From German to Finnish</th>
-								</tr>
-								<tr>
-									<th style= {{width: "120"}}>
-										Request's name
-									</th>
-									<th style={{width: "120"}}>
-										Request's status
-									</th>
-									<th style={{width: "80"}}>
-										Word count
-									</th>
-									<th>
-										Text sample
-									</th>
-								</tr>
-								<tr onClick= {() => { this.viewRequestDetails(23)}}>
-									<td>My translation</td>
-									<td>80% ready</td>
-									<td>1623</td>
-									<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </td>
-								</tr>
-							</table>
-						</div>
+getUserRequests = (userId) => {
+	var requests = JSON.parse(localStorage.getItem("requests"));
 
-						<div id="rq-form-wrapper">
-							<h2>Request another translation</h2>
-							<h3>Tell us more about your text</h3>
+	for (var key in requests){
+		if (requests[key].requester == localStorage.getItem("loggedIn")){			
 
-							<form accepted-charset="UTF-8" method="post" id="rq-form" className="webform-processed">
+			//Correct user, add to user requests
+			this.userRequests.push(requests[key]);
 
-								<div className="label-input-wrapper">
-									<label>Choose a name for your text</label>
-									<input type="text" name="text-name" className="rq-input" size="60" placeholder="Text Name" autocomplete="OFF" />
-								</div>
+		}
+	}		
+}
 
-								<div className="label-input-wrapper">
-									<label>From which language your <br/>text should be translated?</label>
-									<input type="text" name="lng-from" className="rq-input" size="60" placeholder="From" autocomplete="OFF" />
-								</div>
+handleChangeName =(event) => {
+	this.setState({name: event.target.value});
+}
 
-								<div className="label-input-wrapper">
-									<label>To which language your<br/> text should be translated?</label>
-									<input type="text" name="lng-to" className="rq-input" size="60" placeholder="To" autocomplete="OFF" />
-								</div>
+handleChangeLangFrom =(event) => {
+	this.setState({langFrom: event.target.value});
+}
 
-								<div className="label-input-wrapper">
-									<label>Please, write a short description of your text:</label>
-									<textarea name="text-description" className="rq-textarea" rows="4" cols="50" placeholder="Description" autocomplete="OFF" ></textarea>
-								</div>
+handleChangeLangTo =(event) => {
+	this.setState({langTo: event.target.value});
+}
 
-								<div className="label-input-wrapper">
-									<label>Upload your file here:</label>
-									<input type="file" name="text-upload" className="rq-input" size="300" placeholder="File Upload" autocomplete="OFF" />
-								</div>
+handleChangeDescription =(event) => {
+	this.setState({description: event.target.value});
+}
 
-								<input type="submit" value="Submit" className="form-submit dark-button" />
-							</form>
-						</div>
+addNewRequest = (event) => {
+	event.preventDefault();
+
+	//process the submit: gather all data and save; add form validation later
+	//Requests information
+	var requests = JSON.parse(localStorage.getItem("requests"));
+
+	var newRequest = {id: requests.length + 1, title: this.state.name, requesterName: '', requester: localStorage.getItem("loggedIn"), translator: '', wordCount: '', pages: '', status: 0, source: this.state.langFrom, target: this.state.langTo, sample: this.state.description, fullText: ''};
+
+	requests.push(newRequest);	
+	localStorage.setItem("requests", JSON.stringify(requests));
+	
+	//Login new user automatically
+	localStorage.setItem("justAddedId", newRequest.id);		
+	
+}
+
+
+render() {
+
+	
+
+	return (
+		<div>
+			<Helmet>
+				<meta charset="utf-8" />
+				<title>Requestor's Dashboard</title>
+				<meta name="description" content="Requestor's Dashboard" />
+				<meta name="author" content="Team Translator" />
+			</Helmet>
+
+			<Header />
+
+			<div id="page-rq-dashboard" className="page">
+				<div id="content" className="dashboard">
+					<h1>Dashboard</h1>
+					<h2>Your active translation requests</h2>
+					<div id="rq-table-wrapper">
+						<table id="rq-table">
+							<tbody>
+							<tr>
+								<th colSpan="4">From German to Finnish</th>
+							</tr>
+							<tr>
+								<th style= {{width: "120"}}>
+									Request's name
+								</th>
+								<th style={{width: "120"}}>
+									Request's status
+								</th>
+								<th style={{width: "80"}}>
+									Word count
+								</th>
+								<th>
+									Text sample
+								</th>
+							</tr>
+							{this.tableRows}
+							</tbody>
+						</table>
+					</div>
+
+					<div id="rq-form-wrapper">
+						<h2>Request another translation</h2>
+						<h3>Tell us more about your text</h3>
+
+						<form accepted-charset="UTF-8" id="rq-form" className="webform-processed">
+
+							<div className="label-input-wrapper">
+								<label>Choose a name for your text</label>
+								<input type="text" name="text-name" className="rq-input" size="60" placeholder="Text Name" autoComplete="OFF" value={this.state.name} onChange={this.handleChangeName}/>
+							</div>
+
+							<div className="label-input-wrapper">
+								<label>From which language your <br/>text should be translated?</label>
+								<input type="text" name="lng-from" className="rq-input" size="60" placeholder="From" autoComplete="OFF" value={this.state.langFrom} onChange={this.handleChangeLangFrom}/>
+							</div>
+
+							<div className="label-input-wrapper">
+								<label>To which language your<br/> text should be translated?</label>
+								<input type="text" name="lng-to" className="rq-input" size="60" placeholder="To" autoComplete="OFF" value={this.state.langTo} onChange={this.handleChangeLangTo}/>
+							</div>
+
+							<div className="label-input-wrapper">
+								<label>Please, write a short description of your text:</label>
+								<textarea name="text-description" className="rq-textarea" rows="4" cols="50" placeholder="Description" autoComplete="OFF" value={this.state.description} onChange={this.handleChangeDescription}></textarea>
+							</div>
+
+							<div className="label-input-wrapper">
+								<label>Upload your file here:</label>
+								<input type="file" name="text-upload" className="rq-input" size="300" placeholder="File Upload" autoComplete="OFF" />
+							</div>
+
+							<input type="submit" value="Submit" className="form-submit dark-button" onClick={this.addNewRequest}/>
+						</form>
 					</div>
 				</div>
 			</div>
-		);
-	}
+		</div>
+	);
+}
 }
