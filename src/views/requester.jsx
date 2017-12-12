@@ -88,9 +88,7 @@ addNewRequest = (event) => {
 }
 
 
-render() {
-
-	
+render() {	
 
 	return (
 		<div>
@@ -139,7 +137,9 @@ render() {
 						<form accepted-charset="UTF-8" id="rq-form" className="webform-processed">
 
 							<div className="label-input-wrapper">
-								<label>Choose a name for your text</label>
+								<label className="tooltip">Choose a name for your text
+									<span className="tooltiptext">Choose a reasonable name for your text. It will help translators</span>
+								</label>
 								<input type="text" name="text-name" className="rq-input" size="60" placeholder="Text Name" autoComplete="OFF" value={this.state.name} onChange={this.handleChangeName}/>
 							</div>
 
@@ -165,6 +165,7 @@ render() {
 
 							<input type="submit" value="Submit" className="form-submit dark-button" onClick={this.addNewRequest}/>
 						</form>
+
 					</div>
 				</div>
 			</div>

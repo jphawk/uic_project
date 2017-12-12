@@ -81,13 +81,13 @@ export default class TranslatorPage extends Component {
 							<table id="search-table">
 								<tbody>
 								<tr>
-									<th style={{width: "120"}}>
+									<th style={{width: 120}}>
 										Request's name
 									</th>
-									<th style={{width: "120"}}>
+									<th style={{width: 120}}>
 										Request's status
 									</th>
-									<th style={{width: "80"}}>
+									<th style={{width: 80}}>
 										Word count
 									</th>
 									<th>

@@ -101,7 +101,9 @@ render() {
 
 							{this.state.translatorSelected ?
 								<div id="wrapper-select-lg">
+								<div>
 									<select id="select-lg" className="classic">
+										<option value="" disabled selected>Language</option>
 										<option value="Finnish">Finnish</option>
 										<option value="Swedish">Swedish</option>
 										<option value="English">English</option>
@@ -111,11 +113,16 @@ render() {
 									</select>
 
 									<select id="select-level" className="classic">
+										<option value="" disabled selected>Level</option>
 										<option value="B2.2">B2.2</option>
 										<option value="C1.1">C1.1</option>
 										<option value="C1.2">C1.2</option>
 										<option value="C2">C2</option>
 									</select>
+									</div>
+									
+									<label id="select-link-label">Find out more about <br/> CEFR language levels  <a href="https://www.coe.int/en/web/common-european-framework-reference-languages/" title="About CEFR">HERE</a></label>
+								
 								</div> :
 							null						
 							}
