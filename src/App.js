@@ -16,19 +16,38 @@ import registerServiceWorker from './registerServiceWorker';
 
 class App extends Component {
 
-	createInitialData = () => {
-		//Login information
-		localStorage.setItem("logins", JSON.stringify([{user: 'user@a.com', password: 'pass', type: 'requester', name: 'Requester Test'}, {user: 'translator@a.com', password: 'password', type: 'translator', name: 'Translator Tests'}]));
+	constructor(props) {
+		super(props);
+		this.createInitialData();
+	}
 
-		//Request/Translation information
-		localStorage.setItem("requests", JSON.stringify([{id: 23, title: 'Instructions for a German travel card', requesterName: 'Alan Muller', 																											requester: 'alan.muller@gmail.com', translator: '',
-																											wordCount: 1623, pages: 3, status: 20, source: 'German', target: 'Finnish', sample: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', fullText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'}]))
+	createInitialData = () => {
+
+		var logins = [];
+		var requests = [];
+
+		if (localStorage.getItem("logins") !== null){
+			logins = JSON.parse(localStorage.getItem("logins"));
+		}else{
+			//Login information
+			logins.push({user: 'user@a.com', password: 'pass', type: 'requester', name: 'Requester Test'})
+			logins.push({user: 'translator@a.com', password: 'password', type: 'translator', name: 'Translator Tests'});
+		}
+
+		if (localStorage.getItem("requests") !== null){
+			requests = JSON.parse(localStorage.getItem("requests"));
+		}else{
+			//Request/Translation information
+			requests.push({id: 1, title: 'Instructions for a German travel card', requesterName: 'Alan Muller', 																											requester: 'alan.muller@gmail.com', translator: '',
+									 wordCount: 1623, pages: 3, status: 20, source: 'German', target: 'Finnish', sample: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', fullText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'});
+		}
+
+		localStorage.setItem("logins", JSON.stringify(logins));
+		localStorage.setItem("requests", JSON.stringify(requests));
 
 	}
 
 	render() {
-
-		this.createInitialData();
 
 		return (
 			<BrowserRouter>		
