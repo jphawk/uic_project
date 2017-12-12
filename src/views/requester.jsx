@@ -122,7 +122,7 @@ render() {
 									Word count
 								</th>
 								<th>
-									Text sample
+									Comments
 								</th>
 							</tr>
 							{this.tableRows}
@@ -154,8 +154,8 @@ render() {
 							</div>
 
 							<div className="label-input-wrapper">
-								<label>Please, write a short description of your text:</label>
-								<textarea name="text-description" className="rq-textarea" rows="4" cols="50" placeholder="Description" autoComplete="OFF" value={this.state.description} onChange={this.handleChangeDescription}></textarea>
+								<label>Comments and additional information:</label>
+								<textarea name="text-description" className="rq-textarea" rows="4" cols="50" placeholder="Enter your text here..." autoComplete="OFF" value={this.state.description} onChange={this.handleChangeDescription}></textarea>
 							</div>
 
 							<div className="label-input-wrapper">

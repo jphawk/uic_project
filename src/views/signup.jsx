@@ -98,6 +98,8 @@ render() {
 								<input id="radio-requestor" type="radio" name="radio-translator" value="Requestor" onChange= {() => { this.selectRequester()}} checked={this.state.translatorSelected ? '' : 'checked'}/>
 								<label htmlFor="radio-requestor">Requestor</label>
 							</div>
+							
+							<label id="rq-explain">Requestor profile will give your functionality for ordering translations</label>
 
 							{this.state.translatorSelected ?
 								<div id="wrapper-select-lg">

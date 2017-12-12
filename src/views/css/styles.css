@@ -3527,6 +3527,10 @@ select.classic:focus {
 	font-size:14px;
 }
 
+#rq-explain {
+	margin-bottom:30px;
+}
+
 /*Header*/
 
 	#header {
