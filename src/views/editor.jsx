@@ -25,7 +25,19 @@ export default class EditorPage extends Component {
 						<p><b>Requestor:</b> Alan Muller</p>
                         
                         <p><b>Requestor's email:</b> alan.muller@gmail.com</p>
-
+                        
+                        <div id="edit-radio-wrapper">
+								<form id="edit-form-wrapper" action="/">
+									<label class="tooltip">On-hover Dictionary settings 
+                                        <span class="tooltiptext">You can highlight a word in Original and Auto translated text to get a translation for it.</span>
+                                    </label>
+									<input id="dt-definition" type="radio" name="dictionary-switch" value="Definition" checked/>
+									<label for="dt-definition">Definition</label>
+									<input id="dt-word" type="radio" name="dictionary-switch" value="Word-to-word"/>
+									<label for="dt-word">Word-to-word</label>
+								</form>
+						</div>
+                        
 						<div id="edit-wrapper">
 							<div id="edit-tabs">
 
@@ -95,18 +107,11 @@ export default class EditorPage extends Component {
 						</div>
 
 						<div id="edit-control-wrapper">
-							<div id="edit-radio-wrapper">
-								<form id="edit-form-wrapper" action="/">
-									<label>On-hover dictionary settings </label>
-									<input id="dt-definition" type="radio" name="dictionary-switch" value="Definition" checked/>
-									<label for="dt-definition">Definition</label>
-									<input id="dt-word" type="radio" name="dictionary-switch" value="Word-to-word"/>
-									<label for="dt-word">Word-to-word</label>
-								</form>
-							</div>
+							
 							<div id="edit-buttons-wrapper">
-								<a className="light-link" href="/translator" title="Cancel">Cancel</a>
+                                <p>What do you want to do with this translation?</p>
 								<a className="dark-link" href="/" title="Save and Continue">Save and Continue</a>
+                                <a className="light-link" href="/translator" title="Cancel">Cancel</a>
 							</div>
 						</div>
 
