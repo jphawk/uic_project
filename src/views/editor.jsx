@@ -23,6 +23,8 @@ export default class EditorPage extends Component {
 					<div id="content" className="edit">
 						<h1>Instructions for a German travel card</h1>
 						<p><b>Requestor:</b> Alan Muller</p>
+                        
+                        <p><b>Requestor's email:</b> alan.muller@gmail.com</p>
 
 						<div id="edit-wrapper">
 							<div id="edit-tabs">
@@ -61,11 +63,15 @@ export default class EditorPage extends Component {
 										<form action="search">
 											<h3>Translate</h3>
 											<div id="dictionary-float">
-												<input type="text" name="lng-from" className="df-input" size="60" placeholder="From" autocomplete="OFF" />
-												<input type="text" name="lng-to" className="df-input" size="60" placeholder="To" autocomplete="OFF" /> 
+                                                <select className="df-input classic">
+                                                <option value="" disabled selected>From</option>
+                                                </select>
+												<select className="df-input classic">
+                                                <option value="" disabled selected>To</option>
+                                                </select>
 											</div>
 
-											<input type="text" placeholder="Search.." className="dict-search" name="search" />
+											<input type="text" placeholder="Search for a word..." className="dict-search" name="search" />
 											<input type="submit" value=" " className="form-submit dark-button" />
 										</form>
 									</div>

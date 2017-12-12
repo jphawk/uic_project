@@ -85,9 +85,6 @@ export default class TranslatorPage extends Component {
 										Request's name
 									</th>
 									<th style={{width: 120}}>
-										Request's status
-									</th>
-									<th style={{width: 80}}>
 										Word count
 									</th>
 									<th>
@@ -96,19 +93,16 @@ export default class TranslatorPage extends Component {
 								</tr>
 								<tr>
 									<td>Documents for new ID</td>
-									<td>20% ready</td>
 									<td>2023</td>
 									<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </td>
 								</tr>
 								<tr>
 									<td>Documents for new travel card</td>
-									<td>30% ready</td>
 									<td>520</td>
 									<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </td>
 								</tr>
 								<tr>
 									<td>University instructions</td>
-									<td>30% ready</td>
 									<td>230</td>
 									<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </td>
 								</tr>
