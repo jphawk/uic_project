@@ -2555,13 +2555,13 @@
 		width: 100%;
 	}
 
-		table tbody tr {
+		table tr {
 			border: solid 1px #dbdbdb;
 			border-left: 0;
 			border-right: 0;
 		}
 
-			table tbody tr:nth-child(2n + 1) {
+			table tr:nth-child(2n + 1) {
 				background-color: rgba(144, 144, 144, 0.075);
 			}
 
@@ -3335,6 +3335,62 @@ select.classic:focus {
 		max-width:900px;
 	}
 	
+	#rq-form {
+		margin-top:40px;
+	}
+	
+	#rq-form-wrapper {
+		margin-top:20px;
+	}
+
+/*Tooltip*/
+
+#rq-form .tooltip:first-child {
+	background-image:url("../img/question.png");
+	background-repeat:no-repeat;
+	background-position:center right 15px;
+	background-size:20px auto;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 73%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 1s;
+	padding:10px;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+	
 /*Tabs*/
 	
 #edit-tabs {
@@ -3553,6 +3609,10 @@ select.classic:focus {
     padding: 8px;
 	font-size:13px;
   }
+  .tooltip .tooltiptext {
+    width: 150px;
+    left: 83%;
+}
 }
 
 @media screen and (min-width: 400px) {
