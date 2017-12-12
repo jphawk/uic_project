@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Helmet} from "react-helmet";
 import App from '../App';
 import './css/styles.css';
-import DataModule from '../DataModule';
+import Header from './header';
 
 export default class ConfirmationPage extends Component {    
 

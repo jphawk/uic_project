@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Helmet} from "react-helmet";
 import App from '../App';
 import './css/styles.css';
-import DataModule from '../DataModule';
+import Header from './header';
 
 export default class TranslatorPage extends Component {    
 	
@@ -20,18 +20,7 @@ export default class TranslatorPage extends Component {
 					<meta name="author" content="Team Translator" />
 				</Helmet>
 
-				<header className="header" id="header">
-					<div className="headerwrapper">
-						<div id="header-logo">
-							<img src="img/logo.png" alt="Translator logo" className="logo-top" />
-							<h2>Translator</h2>
-						</div>
-						<div id="header-right">
-							<a className="logout-link" href="/logout">Log out</a>
-							<p>Welcome, {localStorage.getItem("loggedIn")}!</p>
-						</div>
-					</div>
-				</header>
+				<Header />
 
 				<div id="page-rq-dashboard" className="page">
 					<div id="content" className="dashboard">
@@ -39,8 +28,9 @@ export default class TranslatorPage extends Component {
 						<h2>Your active translations</h2>
 						<div id="tr-table-wrapper">
 							<table id="tr-table">
+								<tbody>
 								<tr>
-									<th colspan="4">From German to Finnish</th>
+									<th colSpan="4">From German to Finnish</th>
 								</tr>
 								<tr>
 									<th style={{width: 120}}>
@@ -62,6 +52,7 @@ export default class TranslatorPage extends Component {
 									<td>1623</td>
 									<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </td>
 								</tr>
+								</tbody>
 							</table>
 						</div>
 
@@ -72,12 +63,12 @@ export default class TranslatorPage extends Component {
 
 								<div className="label-input-wrapper one">
 									<label>Source language</label>
-									<input type="text" name="lng-from-tr" className="rq-input" size="60" placeholder="From" autocomplete="OFF" />
+									<input type="text" name="lng-from-tr" className="rq-input" size="60" placeholder="From" autoComplete="OFF" />
 								</div>
 
 								<div className="label-input-wrapper two">
 									<label>Target language</label>
-									<input type="text" name="lng-to-tr" className="rq-input" size="60" placeholder="To" autocomplete="OFF" />
+									<input type="text" name="lng-to-tr" className="rq-input" size="60" placeholder="To" autoComplete="OFF" />
 								</div>
 								<div className="submit-wrapper">
 									<input type="submit" value="Search" className="form-submit dark-button" />
@@ -88,6 +79,7 @@ export default class TranslatorPage extends Component {
 
 						<div id="tr-search-wrapper">
 							<table id="search-table">
+								<tbody>
 								<tr>
 									<th style={{width: "120"}}>
 										Request's name
@@ -120,6 +112,7 @@ export default class TranslatorPage extends Component {
 									<td>230</td>
 									<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </td>
 								</tr>
+								</tbody>
 							</table>
 						</div>
 

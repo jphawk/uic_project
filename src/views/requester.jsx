@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Helmet} from "react-helmet";
 import App from '../App';
 import './css/styles.css';
-import DataModule from '../DataModule';
+import Header from './header';
 
 export default class RequesterPage extends Component {  
 	
@@ -19,6 +19,9 @@ export default class RequesterPage extends Component {
 			if (requests[key].requester == localStorage.getItem("loggedIn")){			
 		
 			//Correct user, build a table row
+				
+				
+				
 			}
 		}
 	}
@@ -33,18 +36,7 @@ export default class RequesterPage extends Component {
 					<meta name="author" content="Team Translator" />
 				</Helmet>
 
-				<header className="header" id="header">
-					<div className="headerwrapper">
-						<div id="header-logo">
-							<img src="img/logo.png" alt="Translator logo" className="logo-top" />
-							<h2>Translator</h2>
-						</div>
-						<div id="header-right">
-							<a className="logout-link" href="/logout">Log out</a>
-							<p>Welcome, {localStorage.getItem("loggedIn")}!</p>
-						</div>
-					</div>
-				</header>
+				<Header />
 
 				<div id="page-rq-dashboard" className="page">
 					<div id="content" className="dashboard">
