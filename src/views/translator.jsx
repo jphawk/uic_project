@@ -43,10 +43,10 @@ export default class TranslatorPage extends Component {
 										Word count
 									</th>
 									<th>
-										Text sample
+										Comments
 									</th>
 								</tr>
-								<tr onClick= {() => { this.viewTranslationDetails(23)}}>
+								<tr className="tr-hover" onClick= {() => { this.viewTranslationDetails(23)}}>
 									<td>My translation</td>
 									<td>80% ready</td>
 									<td>1623</td>

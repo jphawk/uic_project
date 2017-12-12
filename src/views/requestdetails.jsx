@@ -22,16 +22,17 @@ export default class RequestDetailsPage extends Component {
 				<div id="page-rq-description" className="page">
 					<div id="content" className="description">
 						<h1>Instructions for a German travel card</h1>
-						<h2>Translation's description</h2>
-						<p><b>Requestor:</b> Alan Muller</p>
-						<p><b>Requestor's email:</b> alan.muller@gmail.com</p>
+						<h2>Requests's description</h2>
+						<p><b>Translator:</b> John Penwood</p>
+						<p><b>Translator's email:</b> john.penwood@gmail.com</p>
 						<p><b>Number of pages:</b> 3</p>
 						<p><b>Word count:</b> 1623</p>
+                        <p><b>Comments:</b>Please, make the translation official</p>
 						<p><b>Text sample:</b>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "</p>
 						<a className="dark-link" href="/requester" title="Back to the Dashboard">Back to the dashboard</a>
 
 						<div className="progress-wrapper">
-							<h2>Request's status</h2>
+							<h2>Status</h2>
 							<div className="progress-bar-outer">
 								<div className="progress-bar-inner">
 									25%

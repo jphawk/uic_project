@@ -30,12 +30,13 @@ export default class TranslationDetailsPage extends Component {
 					<p><b>Requestor's email:</b> alan.muller@gmail.com</p>
 					<p><b>Number of pages:</b> 3</p>
 					<p><b>Word count:</b> 1623</p>
+                    <p><b>Comments:</b> Description here</p>
 					<p><b>Text sample:</b>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "</p>
 					<div className>
 						<a className="dark-link" href="/translator" title="Back to the Dashboard">Back to the dashboard</a>
 						<a className="light-link tr-description-link" href={newLink} title="Continue with this translation">Continue with this translation</a>
 						<div className="progress-wrapper">
-							<h2>Translation's status</h2>
+							<h2>Status</h2>
 							<div className="progress-bar-outer">
 								<div className="progress-bar-inner">
 									25%

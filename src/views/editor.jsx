@@ -80,7 +80,7 @@ export default class EditorPage extends Component {
 						</div>
 
 						<div className="progress-wrapper">
-							<h2>Translation's status</h2>
+							<h2>Status</h2>
 							<div className="progress-bar-outer">
 								<div className="progress-bar-inner">
 									25%

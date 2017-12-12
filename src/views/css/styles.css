@@ -3019,6 +3019,7 @@
 			
 			#tr-form .form-submit {
 				margin-bottom:0;
+                width:110px;
 			}
 		}
 
@@ -3529,6 +3530,17 @@ select.classic:focus {
 
 #rq-explain {
 	margin-bottom:30px;
+}
+
+.add-lg {
+    text-decoration:none;
+    margin-top:20px;
+    display:block;
+}
+
+.tr-hover:hover {
+    background-color:#9dc8ff;
+    cursor:pointer;
 }
 
 /*Header*/
