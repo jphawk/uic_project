@@ -3160,7 +3160,7 @@
 		width:100px;
 	}		
 	}
-	
+	#wrapper-select-lg div:after,
 	#wrapper-select-lg:after,
 	#edit-control-wrapper:after,
 	#dictionary-float:after,
@@ -3389,6 +3389,10 @@ select.classic:focus {
 .tooltip:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
+}
+
+#select-link-label {
+	margin-top:20px;
 }
 	
 /*Tabs*/
@@ -3693,6 +3697,13 @@ select.classic:focus {
 }	
 #edit-buttons-wrapper .light-link {
 	margin-right:10px;
+}
+#rq-form .tooltip:first-child {
+	background-position:center right 30px;
+}
+
+.tooltip .tooltiptext {
+    left: 66.5%;
 }
 
 }
