@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url(font-awesome.min.css);
 @import "https://fonts.googleapis.com/css?family=Raleway:100,300,600";
 
 /*
@@ -82,10 +83,6 @@
 	.tr-description-link {
 		margin-left:10px;
 	}
-
-.hidden {
-	visibility: hidden;
-}
 
 /* Box Model */
 
@@ -2969,6 +2966,7 @@
 
 	#banner {
 		padding: 12em 0 10em 0;
+		background-image: url('../../images/banner.jpg');
 		background-size: cover;
 		background-position: top;
 		background-attachment: fixed;
@@ -3232,8 +3230,7 @@
 	select.classic {
   background-image:
     linear-gradient(45deg, transparent 50%, blue 50%),
-    linear-gradient(135deg, blue 50%, transparent 50%),
-    linear-gradient(to right, skyblue, skyblue);
+    linear-gradient(135deg, blue 50%, transparent 50%);
   background-position:
     calc(100% - 20px) calc(1em + 2px),
     calc(100% - 15px) calc(1em + 2px),
@@ -3247,9 +3244,8 @@
 
 select.classic:focus {
   background-image:
-    linear-gradient(45deg, white 50%, transparent 50%),
-    linear-gradient(135deg, transparent 50%, white 50%),
-    linear-gradient(to right, gray, gray);
+    linear-gradient(45deg, blue 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, blue 50%);
   background-position:
     calc(100% - 15px) 1em,
     calc(100% - 20px) 1em,
@@ -3259,8 +3255,6 @@ select.classic:focus {
     5px 5px,
     2.5em 2.5em;
   background-repeat: no-repeat;
-  border-color: grey;
-  outline: 0;
 }
 	
 	textarea {
@@ -3275,7 +3269,7 @@ select.classic:focus {
 	}
 	
 	.label-input-wrapper label {
-		width: 200px;
+		width: 240px;
 		margin-right:20px;
 	}
 	
@@ -3503,6 +3497,32 @@ select.classic:focus {
 		width:100px;
 	}
 	
+	#bottom-link-confirmation a,
+	#confirmation-buttons-wrapper a{
+		font-size:14px;
+	}
+	
+	#bottom-link-confirmation {
+		margin-top:50px;
+	}
+	
+	#bottom-link-confirmation a{
+		background-color:#355f93;
+	}
+	
+	#bottom-link-confirmation a:hover{
+		background-color:#4b719f;
+	}
+	
+	#confirmation-buttons-wrapper {
+		margin-top:20px;
+	}
+	
+	#confirmation-buttons-wrapper a:first-child{
+		margin-right:10px;
+	}
+
+	
 
 @media screen and (max-width: 1000px) {
 #page-edit-translation .progress-wrapper{
@@ -3556,6 +3576,10 @@ select.classic:focus {
 		width:50%;
 		float:left;
 		height:auto;
+	}
+	
+	#bottom-link-confirmation {
+		margin-top:60px;
 	}
 }
 
