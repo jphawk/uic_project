@@ -7,12 +7,21 @@ import Header from './header';
 export default class TranslatorPage extends Component {
 	
 	userTranslations = [];
+	userLanguages = [];
 	tableRows = [];
+	dropDown = [];
+	searchTableRows = [];
+
+	state = {searchDone: false}
+	
 	
 	constructor(props) {
 		super(props);
 		
 		this.getUserTranslations();
+		this.getUserLanguages();		
+		
+				
 	}
 
 	viewTranslationDetails = (event) => {
@@ -50,6 +59,56 @@ export default class TranslatorPage extends Component {
 		}else{
 			this.tableRows.push(<tr colSpan="4"> No translations yet </tr>);
 		}
+	}
+	
+	getUserLanguages = () => {
+		var logins = JSON.parse(localStorage.getItem("logins"));
+		var self = this;
+		
+		for (var key in logins){
+			if (logins[key].user === localStorage.getItem("loggedIn")){				
+				
+				logins[key].languages.forEach(function(element){
+						var keys = Object.keys(element);
+						self.userLanguages.push(keys[0]);
+					});					
+			}
+		}
+		
+		if (this.userLanguages.length > 0){
+			for (var key in this.userLanguages){
+				this.dropDown.push(<option key={key} value={this.userLanguages[key]} defaultValue>{this.userLanguages[key]}</option>);
+			}
+		}
+	}
+	
+	doSearch = () => {		
+		
+		var source = document.getElementById('search-from').value;
+		var target = document.getElementById('search-to').value;
+		
+		var requests = JSON.parse(localStorage.getItem("requests"));
+
+		for (var key in requests){
+			if (requests[key].translator == "" && requests[key].source === source && requests[key].target === target){			
+
+				//Correct user, add to user requests
+				this.searchTableRows.push(
+					<tr id={"search" + this.userTranslations[key].id} key={"search" + this.userTranslations[key].id} onClick= {this.viewTranslationDetails}>>
+					<td>{requests[key].title}</td>
+					<td>{requests[key].wordCount}</td>
+					<td>{requests[key].sample}</td>
+					</tr>
+				);
+			}
+		}
+		
+		if (this.searchTableRows.length === 0){
+			this.searchTableRows.push(<tr><td colSpan = "3">No results found with this criteria</td></tr>)
+		}	
+		
+		this.setState({searchDone : true});
+		
 	}
 
 	render() {
@@ -100,20 +159,26 @@ export default class TranslatorPage extends Component {
 
 								<div className="label-input-wrapper one">
 									<label>Source language</label>
-									<input type="text" name="lng-from-tr" className="rq-input" size="60" placeholder="From" autoComplete="OFF" />
+									<select id="search-from" name="lng-from-tr" className="classic">
+											<option value="" defaultValue>Select language</option>
+											{this.dropDown}
+									</select>									
 								</div>
 
 								<div className="label-input-wrapper two">
 									<label>Target language</label>
-									<input type="text" name="lng-to-tr" className="rq-input" size="60" placeholder="To" autoComplete="OFF" />
+									<select id="search-to" name="lng-from-tr" className="classic">
+											<option value="" defaultValue>Select language</option>
+											{this.dropDown}
+									</select>
 								</div>
 								<div className="submit-wrapper">
-									<input type="submit" value="Search" className="form-submit dark-button" />
+									<input type="button" value="Search" onClick={this.doSearch} className="form-submit dark-button" />
 								</div>
 							</form>
 						</div>
 
-
+						{this.state.searchDone ?
 						<div id="tr-search-wrapper">
 							<table id="search-table">
 								<tbody>
@@ -128,24 +193,11 @@ export default class TranslatorPage extends Component {
 										Text sample
 									</th>
 								</tr>
-								<tr>
-									<td>Documents for new ID</td>
-									<td>2023</td>
-									<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </td>
-								</tr>
-								<tr>
-									<td>Documents for new travel card</td>
-									<td>520</td>
-									<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </td>
-								</tr>
-								<tr>
-									<td>University instructions</td>
-									<td>230</td>
-									<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </td>
-								</tr>
+								{this.searchTableRows}
 								</tbody>
 							</table>
-						</div>
+						</div> : 
+						null}
 
 
 					</div>

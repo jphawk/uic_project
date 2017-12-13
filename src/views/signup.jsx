@@ -100,29 +100,29 @@ render() {
 							</div>
 							
 							{!this.state.translatorSelected ?
-							<label id="rq-explain">Requestor profile will give your functionality for ordering translations</label>
+							<label id="rq-explain">Requestor profile will give you functionality for ordering translations</label>
 							: null }
 
 							{this.state.translatorSelected ?
 								<div id="wrapper-select-lg">
-								<div>
-									<select id="select-lg" className="classic">
-										<option value="" disabled selected>Language</option>
-										<option value="Finnish">Finnish</option>
-										<option value="Swedish">Swedish</option>
-										<option value="English">English</option>
-										<option value="German">German</option>
-										<option value="Russian">Russian</option>
-										<option value="Romanian">Romanian</option>
-									</select>
+									<div>
+										<select id="select-lg" className="classic">
+											<option value="" disabled selected>Language</option>
+											<option value="Finnish">Finnish</option>
+											<option value="Swedish">Swedish</option>
+											<option value="English">English</option>
+											<option value="German">German</option>
+											<option value="Russian">Russian</option>
+											<option value="Romanian">Romanian</option>
+										</select>
 
-									<select id="select-level" className="classic">
-										<option value="" disabled selected>Level</option>
-										<option value="B2.2">B2.2</option>
-										<option value="C1.1">C1.1</option>
-										<option value="C1.2">C1.2</option>
-										<option value="C2">C2</option>
-									</select>
+										<select id="select-level" className="classic">
+											<option value="" disabled selected>Level</option>
+											<option value="B2.2">B2.2</option>
+											<option value="C1.1">C1.1</option>
+											<option value="C1.2">C1.2</option>
+											<option value="C2">C2</option>
+										</select>
 									</div>
                                     
                   <a onClick={this.addNewLanguage} className="add-lg">+ Add one more language</a>

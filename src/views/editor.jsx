@@ -4,11 +4,8 @@ import App from '../App';
 import './css/styles.css';
 import Header from './header';
 
-export default class EditorPage extends Component { 	
-
-
-
-
+export default class EditorPage extends Component { 
+	
 	constructor(props) {
 		super(props);
 
