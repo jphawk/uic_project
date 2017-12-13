@@ -81,10 +81,10 @@ export default class EditorPage extends Component {
 				self.setState({ data }, () => console.log(self.state));
 				var div = document.getElementById('dictionary-results');
 				var ls = languages.split('-');
-				div.innerHTML = '<p className="first-lg">' + ls[0] + '</p>' +
-												'<p className="second-lg">' + ls[1] + '</p>' +
-												'<p className="first-rs">' + word + '</p>' +
-												'<p className="second-rs">' + data.text[0] + '</p>';
+				div.innerHTML = '<p class="first-lg">' + ls[0] + '</p>' +
+												'<p class="second-lg">' + ls[1] + '</p>' +
+												'<p class="first-rs">' + word + '</p>' +
+												'<p class="second-rs">' + data.text[0] + '</p>';
 			});
 
 	}
@@ -176,11 +176,11 @@ export default class EditorPage extends Component {
 
 									<div id="dictionary-wrapper">
 										<form className="dictionary-wrapper" onSubmit = {this.dictionarySearch}>
-											<h3>Translate From... To...</h3>
+											<h3>Translate</h3>
 											<div id="dictionary-float">
 												<select id="dictionary-langs" className="df-input classic">
-													<option value={this.state.sourceCode + '-' + this.state.targetCode} defaultValue>{this.state.currentTranslation.source} to {this.state.currentTranslation.target} </option>
-													<option value={this.state.targetCode + '-' + this.state.sourceCode} >{this.state.currentTranslation.target} to {this.state.currentTranslation.source} </option>
+                                                    <option value={this.state.sourceCode + '-' + this.state.targetCode} defaultValue>{this.state.currentTranslation.source} to {this.state.currentTranslation.target} </option>
+													<option value={this.state.targetCode + '-' + this.state.sourceCode} >{this.state.currentTranslation.target} to {this.state.currentTranslation.source}</option>
 												</select>												
 											</div>
 

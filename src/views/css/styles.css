@@ -3192,7 +3192,8 @@
 		width:100px;
 	}		
 	}
-
+    
+    #dictionary-results:after,
     .footer:after,
     #edit-area:after,
 	#wrapper-select-lg div:after,
@@ -3268,6 +3269,30 @@
 	
 #wrapper-select-lg .one {
         margin-bottom:20px;
+}
+
+.dictionary-wrapper {
+    margin-bottom:0;
+}
+
+#dictionary-results {
+    max-width:300px;
+    margin-bottom:30px;
+}
+
+.first-lg,
+.second-lg,
+.first-rs,
+.second-rs {
+    width:50%;
+    max-width:150px;
+    float:left;
+}
+
+.first-lg,
+.second-lg {
+    font-weight:bold;
+    border-bottom:1px solid #dbdbdb;
 }
 
 	.select-lg {
