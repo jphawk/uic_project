@@ -54,9 +54,14 @@ export default class RequestDetailsPage extends Component {
 						<div className="progress-wrapper">
 							<h2>Status</h2>
 							<div className="progress-bar-outer">
-								<div className="progress-bar-inner" style={{width: this.state.currentRequest.status + "%"}}>
-									{this.state.currentRequest.status}%
+								{this.state.currentTranslation.status > 0 ?
+								<div className="progress-bar-inner" style={{width: this.state.currentTranslation.status + "%"}}>
+									{this.state.currentTranslation.status}%
+								</div>:
+								<div className="progress-bar-inner" style={{color: "#000", backgroundColor: "#f1f1f1"}}>
+									{this.state.currentTranslation.status}%
 								</div>
+									}
 							</div>
 						</div>
 					</div>
