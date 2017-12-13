@@ -17,7 +17,7 @@ export default class LoginPage extends Component {
 			if (logins[key].user == this.state.email && logins[key].password == this.state.password){
 				
 				localStorage.setItem("loggedIn", this.state.email);
-				
+				localStorage.setItem("loggedInName", logins[key].name);				
 			
 				//Valid username and password, check the type of user
 				if (logins[key].type == 'translator')

@@ -79,7 +79,7 @@ export default class RequesterPage extends Component {
 		//Requests information
 		var requests = JSON.parse(localStorage.getItem("requests"));
 
-		var newRequest = {id: requests.length + 1, title: this.state.name, requesterName: '', requester: localStorage.getItem("loggedIn"), translatorName: '', translator: '', wordCount: '', pages: '', status: 0, source: this.state.langFrom, target: this.state.langTo, sample: this.state.description, fullText: ''};
+		var newRequest = {id: requests.length + 1, title: this.state.name, requesterName: '', requester: localStorage.getItem("loggedIn"), translatorName: '', translator: '', wordCount: '', pages: '', status: 0, source: this.state.langFrom, target: this.state.langTo, sample: '', description: this.state.description, fullText: ''};
 
 		//Get text from file
 		var fileToLoad = document.getElementById("textFile").files[0];
@@ -88,6 +88,7 @@ export default class RequesterPage extends Component {
 		fileReader.onload = function(fileLoadedEvent){
 
 			newRequest.fullText = fileLoadedEvent.target.result;
+			newRequest.sample = newRequest.fullText.split(/\s+/).slice(0,20).join(" ");
 			newRequest.wordCount = newRequest.fullText.split(" ").length;
 
 			//Find pages by dividing words to averga eword count per page(500)
