@@ -46,8 +46,8 @@ export default class TranslationDetailsPage extends Component {
 				<div id="content" className="description">
 					<h1>{this.state.currentTranslation.title}</h1>
 					<h2>Translation's description</h2>
-					<p><b>Requestor:</b> {this.state.currentTranslation.requesterName}</p>
-					<p><b>Requestor's email:</b> {this.state.currentTranslation.requester}</p>
+					<p><b>Requester:</b> {this.state.currentTranslation.requesterName}</p>
+					<p><b>Requester's email:</b> {this.state.currentTranslation.requester}</p>
 					<p><b>Number of pages:</b> {this.state.currentTranslation.pages}</p>
 					<p><b>Word count:</b> {this.state.currentTranslation.wordCount}</p>
                     <p><b>Comments:</b> {this.state.currentTranslation.description}</p>
