@@ -49,7 +49,7 @@ export default class TranslationDetailsPage extends Component {
 					<p><b>Requestor:</b> {this.state.currentTranslation.requesterName}</p>
 					<p><b>Requestor's email:</b> {this.state.currentTranslation.requester}</p>
 					<p><b>Number of pages:</b> {this.state.currentTranslation.pages}</p>
-					<p><b>Word count:</b> {this.state.currentTranslation.words}</p>
+					<p><b>Word count:</b> {this.state.currentTranslation.wordCount}</p>
                     <p><b>Comments:</b> {this.state.currentTranslation.description}</p>
 					<p><b>Text sample:</b> {this.state.currentTranslation.fullText.split(/\s+/).slice(0,20).join(" ")}</p>
 					<div className>

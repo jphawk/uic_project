@@ -27,6 +27,10 @@ export default class TranslatorPage extends Component {
 	viewTranslationDetails = (event) => {
 		
 		var translationId = event.currentTarget.id;
+		
+		if (translationId.indexOf("search") !== -1){
+			translationId = translationId.substr(6, translationId.length);
+		}
 
 		this.props.history.push('/translation/' + translationId);
 	}
@@ -49,8 +53,9 @@ export default class TranslatorPage extends Component {
 
 			for (var key in this.userTranslations){
 
-				this.tableRows.push(<tr id={this.userTranslations[key].id} key={this.userTranslations[key].id} onClick= {this.viewTranslationDetails}> 
+				this.tableRows.push(<tr id={this.userTranslations[key].id} key={this.userTranslations[key].id} onClick= {this.viewTranslationDetails} className="tr-hover"> 
 						<td> {this.userTranslations[key].title} </td>
+						<td> {this.userTranslations[key].source} / {this.userTranslations[key].target} </td>
 						<td> {this.userTranslations[key].status} % ready </td>
 						<td> {this.userTranslations[key].wordCount} </td>
 						<td> {this.userTranslations[key].description} </td>
@@ -66,7 +71,7 @@ export default class TranslatorPage extends Component {
 		var self = this;
 		
 		for (var key in logins){
-			if (logins[key].user === localStorage.getItem("loggedIn") && logins[key].tyep === "translator"){				
+			if (logins[key].user === localStorage.getItem("loggedIn") && logins[key].type === "translator"){			
 				
 				logins[key].languages.forEach(function(element){
 						var keys = Object.keys(element);
@@ -75,8 +80,8 @@ export default class TranslatorPage extends Component {
 			}
 		}
 		
-		if (this.userLanguages.length > 0){
-			for (var key in this.userLanguages){
+		if (this.userLanguages.length > 0){			
+			for (var key in self.userLanguages){
 				this.dropDown.push(<option key={key} value={this.userLanguages[key]} defaultValue>{this.userLanguages[key]}</option>);
 			}
 		}
@@ -94,7 +99,7 @@ export default class TranslatorPage extends Component {
 
 				//Correct user, add to user requests
 				this.searchTableRows.push(
-					<tr id={"search" + this.userTranslations[key].id} key={"search" + this.userTranslations[key].id} onClick= {this.viewTranslationDetails}>>
+					<tr id={"search" + requests[key].id} key={"search" + requests[key].id} onClick= {this.viewTranslationDetails} className="tr-hover">
 					<td>{requests[key].title}</td>
 					<td>{requests[key].wordCount}</td>
 					<td>{requests[key].sample}</td>

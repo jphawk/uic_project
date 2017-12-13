@@ -26,7 +26,7 @@ export default class ConfirmationPage extends Component {
 						<h4>Is this your final version?</h4>
 						<div id="confirmation-buttons-wrapper">
 							<a className="dark-link" href={"/translator/" + this.props.match.params.translationid} title="Yes, submit">Yes, submit</a>
-							<a className="light-link" href="/translator" title="Back to the Dashboard">Back to the Dashboard</a>
+							<a className="light-link" href="/translator" title="Back to the Dashboard">No, back to the Dashboard</a>
 						</div>
 						<div id="bottom-link-confirmation">
 				            <h4>Want to continue editing your translation?</h4>

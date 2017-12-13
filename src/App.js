@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import DataModule from './DataModule';
 import LoginPage from './views/login.jsx';
 import SignUpPage from './views/signup.jsx';
 import LogOutPage from './views/logout.jsx';
@@ -26,11 +23,15 @@ class App extends Component {
 		var logins = [];
 		var requests = [];
 		
+		//localStorage.clear();
+				
 		if (localStorage.getItem("logins") !== null){
 			logins = JSON.parse(localStorage.getItem("logins"));
 		}else{
 			//Login information
+			//requester
 			logins.push({user: 'alan.muller@gmail.com', password: 'pass', type: 'requester', name: 'Alan Muller', languages: []});
+			//translator
 			logins.push({user: 'john.penwood@gmail.com', password: 'password', type: 'translator', name: 'John Penwood',
 									 languages: [{English: 'C2'}, {German: 'C1'}, {Finnish: 'C1'}]});
 		}
@@ -40,7 +41,9 @@ class App extends Component {
 		}else{
 			//Request/Translation information
 			requests.push({id: 1, title: 'Instructions for a German travel card', requesterName: 'Alan Muller', 																										requester: 'alan.muller@gmail.com', translator: 'john.penwood@gmail.com', translatorName: 'John Penwood',
-									 wordCount: 1623, pages: 3, status: 20, source: 'German', target: 'Finnish', sample: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', fullText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', translatedText: ''});
+									 wordCount: 1623, pages: 3, status: 20, source: 'German', target: 'Finnish', sample: '', fullText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', translatedText: '', description: 'Additional info'});
+			requests.push({id: 2, title: 'Instructions for a German travel card', requesterName: 'Alan Muller', 																										requester: 'alan.muller@gmail.com', translator: '', translatorName: '',
+									 wordCount: 1623, pages: 3, status: 0, source: 'German', target: 'Finnish', sample: '', fullText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', translatedText: '', description: 'Additional info'});
 		}
 
 		localStorage.setItem("logins", JSON.stringify(logins));

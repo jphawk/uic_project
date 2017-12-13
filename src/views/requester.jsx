@@ -22,8 +22,9 @@ export default class RequesterPage extends Component {
 
 			for (var key in this.userRequests){
 
-				this.tableRows.push(<tr id={this.userRequests[key].id} key={this.userRequests[key].id} onClick= {this.viewRequestDetails}> 
+				this.tableRows.push(<tr id={this.userRequests[key].id} key={this.userRequests[key].id} onClick= {this.viewRequestDetails} className="tr-hover"> 
 						<td> {this.userRequests[key].title} </td>
+						<td> {this.userRequests[key].source} / {this.userRequests[key].target} </td>
 						<td> {this.userRequests[key].status} % ready </td>
 						<td> {this.userRequests[key].wordCount} </td>
 						<td> {this.userRequests[key].sample} </td>
@@ -78,7 +79,7 @@ export default class RequesterPage extends Component {
 		//Requests information
 		var requests = JSON.parse(localStorage.getItem("requests"));
 
-		var newRequest = {id: requests.length + 1, title: this.state.name, requesterName: '', requester: localStorage.getItem("loggedIn"), translator: '', wordCount: '', pages: '', status: 0, source: this.state.langFrom, target: this.state.langTo, sample: this.state.description, fullText: ''};
+		var newRequest = {id: requests.length + 1, title: this.state.name, requesterName: '', requester: localStorage.getItem("loggedIn"), translatorName: '', translator: '', wordCount: '', pages: '', status: 0, source: this.state.langFrom, target: this.state.langTo, sample: this.state.description, fullText: ''};
 
 		//Get text from file
 		var fileToLoad = document.getElementById("textFile").files[0];
@@ -155,7 +156,7 @@ export default class RequesterPage extends Component {
 						}
 
 						<div id="rq-form-wrapper">
-							<h2>Request another translation</h2>
+							<h2>Request a translation</h2>
 							<h3>Tell us more about your text</h3>
 
 							<form accepted-charset="UTF-8" id="rq-form" className="webform-processed">
@@ -187,7 +188,7 @@ export default class RequesterPage extends Component {
 								</div>
 
 								<div className="label-input-wrapper">
-									<label>Upload your file here:</label>
+									<label>Upload the file to be translated:</label>
 									<input id="textFile" type="file" name="text-upload" className="rq-input" size="300" placeholder="File Upload" autoComplete="OFF" />
 								</div>
 
