@@ -7,29 +7,44 @@ import { Link } from 'react-router-dom';
 
 export default class LoginPage extends Component {  
 	
-	state = {email: '', password: ''};
+	state = {email: '', password: '', errors: []};
 
-	doLogin = () => {
-				
-		var logins = JSON.parse(localStorage.getItem("logins"));
+	doLogin = () => {	
+		this.setState({errors: []});
 		
-		for (var key in logins){
-			if (logins[key].user == this.state.email && logins[key].password == this.state.password){
-				
-				localStorage.setItem("loggedIn", this.state.email);
-				localStorage.setItem("loggedInName", logins[key].name);				
-			
-				//Valid username and password, check the type of user
-				if (logins[key].type == 'translator')
-					this.props.history.push('/translator');
-				else
-					this.props.history.push('/requester');
-			}
+		//validate the form fields: not empty, one email field
+		if (this.state.email === '' ){
+			this.state.errors.push("Please give your email to log in.");
+		}else if (! /\w+@\w+\.\w{2,10}/.test(this.state.email.toLowerCase())){
+			this.state.errors.push('Your email is not in a correct format');
 		}
 		
+		if (this.state.password === ''){
+			this.state.errors.push("Please give your password to log in.");				
+		}
 		
-		//display error message
-		
+		if (this.state.errors.length === 0){
+				
+			var logins = JSON.parse(localStorage.getItem("logins"));
+
+			for (var key in logins){
+				if (logins[key].user == this.state.email && logins[key].password == this.state.password){
+
+					localStorage.setItem("loggedIn", this.state.email);
+					localStorage.setItem("loggedInName", logins[key].name);				
+
+					//Valid username and password, check the type of user
+					if (logins[key].type == 'translator')
+						this.props.history.push('/translator');
+					else
+						this.props.history.push('/requester');
+				}
+			}
+			
+			//no login found
+			this.state.errors.push("Your email and password combination is not correct. Please try again.");			
+		}	
+
 	}
 	
 

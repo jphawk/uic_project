@@ -80,7 +80,11 @@ export default class EditorPage extends Component {
 			}).then(function(data) {
 				self.setState({ data }, () => console.log(self.state));
 				var div = document.getElementById('dictionary-results');
-				div.innerHTML = word + ':' + data.text[0] ;
+				var ls = languages.split('-');
+				div.innerHTML = '<p className="first-lg">' + ls[0] + '</p>' +
+												'<p className="second-lg">' + ls[1] + '</p>' +
+												'<p className="first-rs">' + word + '</p>' +
+												'<p className="second-rs">' + data.text[0] + '</p>';
 			});
 
 	}
