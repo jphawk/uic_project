@@ -3226,8 +3226,12 @@
 		margin-bottom:0;
 	}
 	
-	#logout-info p:first-child {
+	#logout-info p {
 		margin-bottom:0.5em;
+	}
+
+#logout-info p:last-child {
+		margin-bottom:0;
 	}
 	
 	#tr-search-wrapper,

@@ -32,6 +32,7 @@ export default class LogOutPage extends Component {
 						<div id="logout-info">
 							<p>You have logged out.</p>
 							<p>We hope to see you soon!</p>
+                            <p>Back to <a href="/" title="To Login">Login</a></p>
 						</div>
 					</div>
 				</div>

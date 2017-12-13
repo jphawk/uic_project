@@ -40,10 +40,21 @@ class App extends Component {
 			requests = JSON.parse(localStorage.getItem("requests"));
 		}else{
 			//Request/Translation information
-			requests.push({id: 1, title: 'Instructions for a German travel card', requesterName: 'Alan Muller', 																										requester: 'alan.muller@gmail.com', translator: 'john.penwood@gmail.com', translatorName: 'John Penwood',
-									 wordCount: 1623, pages: 3, status: 20, source: 'German', target: 'Finnish', sample: '', fullText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', translatedText: '', description: 'Additional info'});
-			requests.push({id: 2, title: 'Instructions for a German travel card', requesterName: 'Alan Muller', 																										requester: 'alan.muller@gmail.com', translator: '', translatorName: '',
-									 wordCount: 1623, pages: 3, status: 0, source: 'German', target: 'Finnish', sample: '', fullText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', translatedText: '', description: 'Additional info'});
+			requests.push({id: 1, title: 'Instructions for a German travel card', requesterName: 'Alan Muller', 														 requester: 'alan.muller@gmail.com', translator: 'john.penwood@gmail.com', translatorName: 'John Penwood',
+									 wordCount: 1623, pages: 3, status: 20, source: 'German', target: 'Finnish', sample: '', fullText: 'Einen Tag lang beliebig viel fahren und mit bis zu fünf Personen ein Bundesland entdecken - die Länder-Tickets der Bahn machen es möglich. Wählen Sie Ihr gewünschtes Bundesland aus, um weitere Infos zu erhalten und zur Buchung zu gelangen.', translatedText: '', description: 'Please, make the translation official, if it is possible'});
+            
+			requests.push({id: 2, title: 'Email from my bank', requesterName: 'Thomas Mullerleile', 														requester: 'thomas.mullerleile@gmail.com', translator: '', translatorName: '',
+									 wordCount: 1002, pages: 2, status: 0, source: 'German', target: 'English', sample: '', fullText: 'Bereits mehr als vier Millionen Postbank Kunden haben sich für das komfortable Postbank Online-Banking entschieden. Ob zu Hause, am Arbeitsplatz oder weltweit unterwegs – mit unserem Online-Banking haben Sie jederzeit und überall direkten Zugriff auf Ihr Girokonto.', translatedText: '', description: 'It is important for me to know what documents I should provide for the first bank appointment. Please, help me with this'});
+            
+            requests.push({id: 3, title: 'Email from Migri', requesterName: 'Sean Lock', 														requester: 'sean.lock@gmail.com', translator: '', translatorName: '',
+									 wordCount: 500, pages: 1, status: 0, source: 'Finnish', target: 'English', sample: '', fullText: 'Maahanmuuttovirasto myöntää jatkoluvan, jos edellytykset, joiden perusteella sinulle myönnettiin edellinen määräaikainen oleskelulupa, ovat edelleen olemassa.', translatedText: '', description: 'There are two contact numbers in the text. Which should I use to know more about my residence permit?'});
+            
+            requests.push({id: 4, title: 'Request for Russian visa', requesterName: 'Sanna Lehtinen', 														requester: 'sanna.lehtinen@gmail.com', translator: '', translatorName: '',
+									 wordCount: 500, pages: 1, status: 0, source: 'Finnish', target: 'Russian', sample: '', fullText: 'Ulkomaan kansalainen saa maksutta maahantulokorttikaavakkeen rajavalvontaviranomaisilta saapuessaan Venäjän federaatioon tai ulkomaan kansalaisille matkapalveluita tarjoavan organisaation työntekijöiltä.', translatedText: '', description: 'Please, translate it as soon as possible'});
+            
+            requests.push({id: 5, title: 'Instructions for my visa', requesterName: 'Anna Hietala', 														requester: 'anna.hietala@gmail.com', translator: '', translatorName: '',
+									 wordCount: 500, pages: 1, status: 0, source: 'Russian', target: 'Finnish', sample: '', fullText: 'Заявитель может подать документы также через аккредитованные туристические агентства, но в каждые 59 месяцев он должен лично приходить в визовый центр для сдачи своих отпечатков.', translatedText: '', description: 'I did not understand what I should do every 59 months or weeks. Can explain, please?'});
+            
 		}
 
 		localStorage.setItem("logins", JSON.stringify(logins));
