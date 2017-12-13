@@ -15,8 +15,6 @@ export default class LoginPage extends Component {
 		//validate the form fields: not empty, one email field
 		if (this.state.email === '' ){
 			this.state.errors.push("Please give your email to log in.");
-		}else if (! /\w+@\w+\.\w{2,10}/.test(this.state.email.toLowerCase())){
-			this.state.errors.push('Your email is not in a correct format');
 		}
 		
 		if (this.state.password === ''){
@@ -44,6 +42,14 @@ export default class LoginPage extends Component {
 			//no login found
 			this.state.errors.push("Your email and password combination is not correct. Please try again.");			
 		}	
+		
+		var errorList = '';
+		
+		for (var i = 0; i < this.state.errors.length; i++){
+			errorList += '<p>' + this.state.errors[i] + '</p>';
+		}
+		
+		document.getElementById("errors").innerHTML = this.state.errors;
 
 	}
 	
@@ -81,6 +87,10 @@ export default class LoginPage extends Component {
 								<div className="wrapper">
 									<input type="email" name="email" value={this.state.email} className="login-input" size="60" placeholder="Email" autoComplete="OFF" onChange={this.handleChangeEmail} />
 									<input type="password" name="pass" value={this.state.password} className="login-input" size="60" placeholder="Password" autoComplete="OFF" onChange={this.handleChangePassword} />
+									
+									<div id="errors" className="errors">
+									</div>
+									
 									<div className="wrapper-login-login">
 										<input type="submit" value="Login" className="form-submit dark-button" onClick={this.doLogin}/>
 									</div>
