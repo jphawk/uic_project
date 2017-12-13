@@ -54,7 +54,9 @@ export default class TranslationDetailsPage extends Component {
 					<p><b>Text sample:</b> {this.state.currentTranslation.fullText.split(/\s+/).slice(0,20).join(" ")}</p>
 					<div className>
 						<a className="dark-link" href="/translator" title="Back to the Dashboard">Back to the dashboard</a>
-						<a className="light-link tr-description-link" href={'/translation/' + this.props.match.params.translationid + '/edit'} title="Continue with this translation">Continue with this translation</a>
+						{this.state.currentTranslation.status < 100 ?
+						<a className="light-link tr-description-link" href={'/translation/' + this.props.match.params.translationid + '/edit'} title="Continue with this translation">Continue with this translation</a> : null
+							}
 						<div className="progress-wrapper">
 							<h2>Status</h2>
 							<div className="progress-bar-outer">

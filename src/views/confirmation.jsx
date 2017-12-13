@@ -4,7 +4,26 @@ import App from '../App';
 import './css/styles.css';
 import Header from './header';
 
-export default class ConfirmationPage extends Component {    
+export default class ConfirmationPage extends Component { 
+	
+	doSubmit = () => {
+				
+		var requests = JSON.parse(localStorage.getItem("requests"));
+
+		for (var key in requests){
+			if (requests[key].id == this.props.match.params.translationid){			
+
+				//Update status to 100%
+				requests[key].status = 100;
+			}
+		}
+		
+		localStorage.setItem("requests", JSON.stringify(requests));
+		
+		
+		this.props.history.push("/translator/" + this.props.match.params.translationid);
+		
+	}
 
 	render() {
 				
@@ -17,7 +36,7 @@ export default class ConfirmationPage extends Component {
 					<meta name="author" content="Team Translator" />
 				</Helmet>
                 
-                <Header />
+        <Header />
 
 				<div id="page-confirmation" className="page">
 					<div id="content" className="confirmation">
@@ -25,7 +44,7 @@ export default class ConfirmationPage extends Component {
                         <h3>Your work was successfully saved</h3>
 						<h4>Is this your final version?</h4>
 						<div id="confirmation-buttons-wrapper">
-							<a className="dark-link" href={"/translator/" + this.props.match.params.translationid} title="Yes, submit">Yes, submit</a>
+							<a className="dark-link" title="Yes, submit" onClick={this.doSubmit}>Yes, submit</a>
 							<a className="light-link" href="/translator" title="Back to the Dashboard">No, back to the Dashboard</a>
 						</div>
 						<div id="bottom-link-confirmation">

@@ -104,6 +104,11 @@ export default class EditorPage extends Component {
 				
 				//Update status if work has been done; this is not a reliable formula, we just use it for the purpose of showing the change in the interface
 				requests[key].status = Math.floor(requests[key].translatedText.split(' ').length / requests[key].fullText.split(' ').length * 100);
+				
+				//Make sure it is not 100(unless submitted) or over
+				while (requests[key].status > 95){
+					requests[key].status -= 10;
+				}
 			}
 		}
 		
