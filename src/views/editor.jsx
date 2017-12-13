@@ -7,6 +7,8 @@ import Header from './header';
 export default class EditorPage extends Component { 	
 
 	render() {
+		
+		var newLink = '/translation/' + this.props.match.params.translationid + '/confirm';
 
 		return (
 			<div>
@@ -23,21 +25,21 @@ export default class EditorPage extends Component {
 					<div id="content" className="edit">
 						<h1>Instructions for a German travel card</h1>
 						<p><b>Requestor:</b> Alan Muller</p>
-                        
-                        <p><b>Requestor's email:</b> alan.muller@gmail.com</p>
-                        
-                        <div id="edit-radio-wrapper">
-								<form id="edit-form-wrapper" action="/">
-									<label class="tooltip">On-hover Dictionary settings 
-                                        <span class="tooltiptext">You can highlight a word in Original and Auto translated text to get a translation for it.</span>
-                                    </label>
-									<input id="dt-definition" type="radio" name="dictionary-switch" value="Definition" checked/>
-									<label for="dt-definition">Definition</label>
-									<input id="dt-word" type="radio" name="dictionary-switch" value="Word-to-word"/>
-									<label for="dt-word">Word-to-word</label>
-								</form>
+
+						<p><b>Requestor's email:</b> alan.muller@gmail.com</p>
+
+						<div id="edit-radio-wrapper">
+							<form id="edit-form-wrapper" action="/">
+								<label class="tooltip">On-hover Dictionary settings 
+									<span class="tooltiptext">You can highlight a word in Original and Auto translated text to get a translation for it.</span>
+								</label>
+								<input id="dt-definition" type="radio" name="dictionary-switch" value="Definition" checked/>
+								<label for="dt-definition">Definition</label>
+								<input id="dt-word" type="radio" name="dictionary-switch" value="Word-to-word"/>
+								<label for="dt-word">Word-to-word</label>
+							</form>
 						</div>
-                        
+
 						<div id="edit-wrapper">
 							<div id="edit-tabs">
 
@@ -75,12 +77,12 @@ export default class EditorPage extends Component {
 										<form action="search">
 											<h3>Translate</h3>
 											<div id="dictionary-float">
-                                                <select className="df-input classic">
-                                                <option value="" disabled selected>From</option>
-                                                </select>
 												<select className="df-input classic">
-                                                <option value="" disabled selected>To</option>
-                                                </select>
+													<option value="" disabled selected>From</option>
+												</select>
+												<select className="df-input classic">
+													<option value="" disabled selected>To</option>
+												</select>
 											</div>
 
 											<input type="text" placeholder="Search for a word..." className="dict-search" name="search" />
@@ -107,11 +109,11 @@ export default class EditorPage extends Component {
 						</div>
 
 						<div id="edit-control-wrapper">
-							
+
 							<div id="edit-buttons-wrapper">
-                                <p>What do you want to do with this translation?</p>
-								<a className="dark-link" href="/" title="Save and Continue">Save and Continue</a>
-                                <a className="light-link" href="/translator" title="Cancel">Cancel</a>
+								<p>What do you want to do with this translation?</p>
+								<a className="dark-link" href={newLink} title="Save and Continue">Save and Continue</a>
+								<a className="light-link" href="/translator" title="Cancel">Cancel</a>
 							</div>
 						</div>
 
