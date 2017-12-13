@@ -173,6 +173,12 @@ export default class RequesterPage extends Component {
 									<label>From which language your <br/>text should be translated?</label>
                                     <select name="lng-from" className="rq-input" className="classic" value={this.state.langFrom} onChange={this.handleChangeLangFrom}>
 											<option value="" defaultValue>From</option>
+                                            <option value="Finnish">Finnish</option>
+											<option value="Swedish">Swedish</option>
+											<option value="English">English</option>
+											<option value="German">German</option>
+											<option value="Russian">Russian</option>
+											<option value="Romanian">Romanian</option>
 									</select>
 									</div>
 
@@ -180,6 +186,12 @@ export default class RequesterPage extends Component {
 									<label>To which language your<br/> text should be translated?</label>
                                     <select name="lng-to" className="rq-input" className="classic" value={this.state.langTo} onChange={this.handleChangeLangTo}>
 											<option value="" defaultValue>To</option>
+                                            <option value="Finnish">Finnish</option>
+											<option value="Swedish">Swedish</option>
+											<option value="English">English</option>
+											<option value="German">German</option>
+											<option value="Russian">Russian</option>
+											<option value="Romanian">Romanian</option>
 									</select>
 								</div>
 
@@ -188,8 +200,10 @@ export default class RequesterPage extends Component {
 									<textarea name="text-description" className="rq-textarea" rows="4" cols="50" placeholder="Enter your text here..." autoComplete="OFF" value={this.state.description} onChange={this.handleChangeDescription}></textarea>
 								</div>
 
-								<div className="label-input-wrapper">
-									<label>Upload the file to be translated:</label>
+								<div className="label-input-wrapper five">
+									<label className="tooltip">Upload the file to be translated
+                                    <span className="tooltiptext">Available file types:<br/> txt, html</span>
+                                    </label>
 									<input id="textFile" type="file" name="text-upload" className="rq-input" size="300" placeholder="File Upload" autoComplete="OFF" />
 								</div>
 
