@@ -3639,14 +3639,20 @@ select.classic:focus {
     
     #confirmation-buttons-wrapper .dark-link {
         margin-bottom:10px;
-}
-.confirmation h3 {
-    margin-top:-10px;
-    margin-bottom:40px;
-    color: black;
-    font-weight: bold;
-}
-    
+    }
+    .confirmation h3 {
+        margin-top:-10px;
+        margin-bottom:40px;
+        color: black;
+        font-weight: bold;
+    }
+
+    .no-requests {
+        color:#355f93;
+        font-weight: bold;
+        background:#e8edf3;
+        border-bottom:solid 1px #dbdbdb;
+    }
 	
 	#confirmation-buttons-wrapper {
 		margin-top:20px;

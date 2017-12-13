@@ -30,7 +30,7 @@ export default class RequesterPage extends Component {
 					</tr> );
 			}
 		}else{
-			this.tableRows.push(<tr colSpan="4"> No requests yet </tr>);
+			this.tableRows.push(<td className="no-requests" colSpan="5"> No requests yet </td>);
 		}
 	}
 
@@ -123,17 +123,18 @@ export default class RequesterPage extends Component {
 						<div id="rq-table-wrapper">
 							<table id="rq-table">
 								<tbody>
+									
 									<tr>
-										<th colSpan="4">From German to Finnish</th>
-									</tr>
-									<tr>
-										<th style= {{width: "120"}}>
+                                        <th style= {{width: 140}}>
 											Request's name
 										</th>
-										<th style={{width: "120"}}>
+                                        <th style= {{width: 140}}>
+                                            Languages: from...to
+                                        </th>
+										<th style={{width: 140}}>
 											Request's status
 										</th>
-										<th style={{width: "80"}}>
+										<th style={{width: 100}}>
 											Word count
 										</th>
 										<th>
