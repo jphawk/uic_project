@@ -139,6 +139,12 @@
         margin-bottom:20px;
 	}
 
+    .label-input-wrapper select {
+        max-width:320px;
+        color:grey;
+        margin-bottom:20px;
+    }
+
     #tr-form .label-input-wrapper.one {
         margin-right:60px;
     }

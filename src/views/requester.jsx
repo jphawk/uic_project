@@ -169,12 +169,16 @@ export default class RequesterPage extends Component {
 
 								<div className="label-input-wrapper">
 									<label>From which language your <br/>text should be translated?</label>
-									<input type="text" name="lng-from" className="rq-input" size="60" placeholder="From" autoComplete="OFF" value={this.state.langFrom} onChange={this.handleChangeLangFrom}/>
-								</div>
+                                    <select name="lng-from" className="rq-input" className="classic" value={this.state.langFrom} onChange={this.handleChangeLangFrom}>
+											<option value="" defaultValue>From</option>
+									</select>
+									</div>
 
 								<div className="label-input-wrapper">
 									<label>To which language your<br/> text should be translated?</label>
-									<input type="text" name="lng-to" className="rq-input" size="60" placeholder="To" autoComplete="OFF" value={this.state.langTo} onChange={this.handleChangeLangTo}/>
+                                    <select name="lng-to" className="rq-input" className="classic" value={this.state.langTo} onChange={this.handleChangeLangTo}>
+											<option value="" defaultValue>To</option>
+									</select>
 								</div>
 
 								<div className="label-input-wrapper">
