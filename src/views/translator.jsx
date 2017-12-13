@@ -66,7 +66,7 @@ export default class TranslatorPage extends Component {
 		var self = this;
 		
 		for (var key in logins){
-			if (logins[key].user === localStorage.getItem("loggedIn")){				
+			if (logins[key].user === localStorage.getItem("loggedIn") && logins[key].tyep === "translator"){				
 				
 				logins[key].languages.forEach(function(element){
 						var keys = Object.keys(element);

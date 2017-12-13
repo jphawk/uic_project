@@ -30,7 +30,7 @@ class App extends Component {
 			logins = JSON.parse(localStorage.getItem("logins"));
 		}else{
 			//Login information
-			logins.push({user: 'alan.muller@gmail.com', password: 'pass', type: 'requester', name: 'Alan Muller'})
+			logins.push({user: 'alan.muller@gmail.com', password: 'pass', type: 'requester', name: 'Alan Muller', languages: []});
 			logins.push({user: 'john.penwood@gmail.com', password: 'password', type: 'translator', name: 'John Penwood',
 									 languages: [{English: 'C2'}, {German: 'C1'}, {Finnish: 'C1'}]});
 		}

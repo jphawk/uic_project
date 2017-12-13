@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
+import { Link } from 'react-router-dom';
 import App from '../App';
 import './css/styles.css';
-import { Link } from 'react-router-dom';
-import logo from './img/capricorn.png';;
+import logo from './img/capricorn.png';
 
 export default class SignUpPage extends Component {   
 
@@ -45,6 +45,7 @@ handleSubmit = (event) => {
 	//if translator, add info on their languages, else requester user
 	if (this.state.translatorSelected){
 		newUser.type = 'translator';
+		newUser.languages = [];
 	}else{
 		newUser.type = 'requester';
 	}
