@@ -5,6 +5,61 @@ import './css/styles.css';
 import Header from './header';
 
 export default class EditorPage extends Component { 	
+	
+	
+	
+	
+	constructor(props) {
+		super(props);
+		
+		var languageCodes = {
+			Finnish : 'fi',
+			Swedish : 'sv',
+			English : 'en',
+			German : 'de',
+			Russian : 'ru',
+			Romanian : 'ro'
+		};
+		
+		this.state = {currentTranslation : {}, targetCode: '', sourceCode: ''};
+		
+		this.getTranslation();
+		
+		//Get language codes here, to make things a bit simpler
+		this.state.sourceCode = languageCodes[this.state.currentTranslation.source];
+		this.state.targetCode = languageCodes[this.state.currentTranslation.target];
+	
+		this.getAutoTranslation();
+	}	
+
+	getTranslation = () => {
+		var requests = JSON.parse(localStorage.getItem("requests"));
+
+		for (var key in requests){
+			if (requests[key].id == this.props.match.params.translationid){			
+
+				//Correct user, add to user requests
+				this.state.currentTranslation = requests[key];
+			}
+		}
+	}
+	
+	//AutoTranslation using Yandex API
+	getAutoTranslation = () => {
+		var self = this;
+				
+		fetch('https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20171213T014034Z.e1196a425bed27ba.a17e5539b7bcc4c58f6a7935df5187d0a5a00369&text='+ 
+					this.state.currentTranslation.fullText
+					+'&lang='+ this.state.sourceCode + '-' + this.state.targetCode)
+				.then(function(response) {
+					return response.json();
+				}).then(function(data) {
+					 self.setState({ data }, () => console.log(self.state));
+					 var div = document.getElementById('content2');
+
+					div.innerHTML += data.text[0];
+				});
+	}
 
 	render() {
 		
@@ -23,51 +78,40 @@ export default class EditorPage extends Component {
 
 				<div id="page-edit-translation" className="page">
 					<div id="content" className="edit">
-						<h1>Instructions for a German travel card</h1>
-						<p><b>Requestor:</b> Alan Muller</p>
+						<h1>{this.state.currentTranslation.title}</h1>
+						<p><b>Requestor:</b> {this.state.currentTranslation.requesterName}</p>
 
-						<p><b>Requestor's email:</b> alan.muller@gmail.com</p>
+						<p><b>Requestor's email:</b> {this.state.currentTranslation.requester}</p>
 
 						<div id="edit-radio-wrapper">
 							<form id="edit-form-wrapper" action="/">
-								<label class="tooltip">On-hover Dictionary settings 
-									<span class="tooltiptext">You can highlight a word in Original and Auto translated text to get a translation for it.</span>
+								<label className="tooltip">On-hover Dictionary settings 
+									<span className="tooltiptext">You can highlight a word in Original and Auto translated text to get a translation for it.</span>
 								</label>
-								<input id="dt-definition" type="radio" name="dictionary-switch" value="Definition" checked/>
-								<label for="dt-definition">Definition</label>
+								<input id="dt-definition" type="radio" name="dictionary-switch" value="Definition" defaultChecked/>
+								<label htmlFor="dt-definition">Definition</label>
 								<input id="dt-word" type="radio" name="dictionary-switch" value="Word-to-word"/>
-								<label for="dt-word">Word-to-word</label>
+								<label htmlFor="dt-word">Word-to-word</label>
 							</form>
 						</div>
 
 						<div id="edit-wrapper">
 							<div id="edit-tabs">
 
-								<input id="tab1" type="radio" name="tabs" checked />
-								<label for="tab1">Original</label>
+								<input id="tab1" type="radio" name="tabs" defaultChecked />
+								<label htmlFor="tab1">Original</label>
 
 								<input id="tab2" type="radio" name="tabs" />
-								<label for="tab2">Auto Translation</label>
+								<label htmlFor="tab2">Auto Translation</label>
 
 								<input id="tab3" type="radio" name="tabs" />
-								<label for="tab3">Dictionary</label>
+								<label htmlFor="tab3">Dictionary</label>
 
 								<section id="content1">
-									<p>
-										Bacon ipsum dolor sit amet beef venison beef ribs kielbasa. Sausage pig leberkas, t-bone sirloin shoulder bresaola. Frankfurter rump porchetta ham. Pork belly prosciutto brisket meatloaf short ribs.
-									</p>
-									<p>
-										Brisket meatball turkey short loin boudin leberkas meatloaf chuck andouille pork loin pastrami spare ribs pancetta rump. Frankfurter corned beef beef tenderloin short loin meatloaf swine ground round venison.
-									</p>
+									{this.state.currentTranslation.fullText}
 								</section>
 
 								<section id="content2">
-									<p>
-										Bacon ipsum dolor sit amet landjaeger sausage brisket, jerky drumstick fatback boudin ball tip turducken. Pork belly meatball t-bone bresaola tail filet mignon kevin turkey ribeye shank flank doner cow kielbasa shankle. Pig swine chicken hamburger, tenderloin turkey rump ball tip sirloin frankfurter meatloaf boudin brisket ham hock. Hamburger venison brisket tri-tip andouille pork belly ball tip short ribs biltong meatball chuck. Pork chop ribeye tail short ribs, beef hamburger meatball kielbasa rump corned beef porchetta landjaeger flank. Doner rump frankfurter meatball meatloaf, cow kevin pork pork loin venison fatback spare ribs salami beef ribs.
-									</p>
-									<p>
-										Jerky jowl pork chop tongue, kielbasa shank venison. Capicola shank pig ribeye leberkas filet mignon brisket beef kevin tenderloin porchetta. Capicola fatback venison shank kielbasa, drumstick ribeye landjaeger beef kevin tail meatball pastrami prosciutto pancetta. Tail kevin spare ribs ground round ham ham hock brisket shoulder. Corned beef tri-tip leberkas flank sausage ham hock filet mignon beef ribs pancetta turkey.
-									</p>
 								</section>
 
 								<section id="content3">
@@ -77,11 +121,11 @@ export default class EditorPage extends Component {
 										<form action="search">
 											<h3>Translate</h3>
 											<div id="dictionary-float">
-												<select className="df-input classic">
-													<option value="" disabled selected>From</option>
+												<select id="dictionary-from" className="df-input classic">
+													<option value="" defaultValue>{this.state.currentTranslation.source}</option>
 												</select>
-												<select className="df-input classic">
-													<option value="" disabled selected>To</option>
+												<select id='dictionary-t0' className="df-input classic">
+													<option value="" defaultValue>{this.state.currentTranslation.target}</option>
 												</select>
 											</div>
 
@@ -102,8 +146,8 @@ export default class EditorPage extends Component {
 						<div className="progress-wrapper">
 							<h2>Status</h2>
 							<div className="progress-bar-outer">
-								<div className="progress-bar-inner">
-									25%
+								<div className="progress-bar-inner" style={{width: this.state.currentTranslation.status + "%"}}>
+									{this.state.currentTranslation.status}%
 								</div>
 							</div>
 						</div>
