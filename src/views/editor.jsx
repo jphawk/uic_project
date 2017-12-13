@@ -76,7 +76,7 @@ export default class EditorPage extends Component {
 			}).then(function(data) {
 				self.setState({ data }, () => console.log(self.state));
 				var div = document.getElementById('dictionary-results');
-				div.innerHTML += word + ' (' + source + ') : ' + data.text[0] + ' (' + target + ')';
+				div.innerHTML = word + ' (' + source + ') : ' + data.text[0] + ' (' + target + ')';
 			});
 
 	}
