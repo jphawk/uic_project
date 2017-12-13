@@ -95,9 +95,6 @@ export default class RequesterPage extends Component {
 			requests.push(newRequest);	
 			localStorage.setItem("requests", JSON.stringify(requests));
 
-			//Login new user automatically
-			localStorage.setItem("justAddedId", newRequest.id);	
-
 			window.location = '/requester/' + newRequest.id;	
 
 		};

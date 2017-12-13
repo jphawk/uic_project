@@ -151,6 +151,14 @@ export default class TranslatorPage extends Component {
 								</tbody>
 							</table>
 						</div>
+						
+						{ this.props.match.params.translationid != null ?
+							<div id="confirmation-block">
+								<h3>Your translation was successfully submitted!</h3>
+								<p>Thank you for your contribution.</p>
+							</div> :
+							null
+						}
 
 						<div id="tr-form-wrapper">
 							<h2>Browse for new translation requests</h2>

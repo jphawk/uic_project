@@ -59,7 +59,8 @@ class App extends Component {
 			<Route exact path="/requester" component={RequesterPage}/>
 			<Route path="/requester/:requestid" component={RequesterPage}/>
 			<Route exact path="/request/:requestid" component={RequestDetailsPage}/>
-			<Route path="/translator" component={TranslatorPage}/>
+			<Route exact path="/translator" component={TranslatorPage}/>
+			<Route path="/translator/:translationid" component={TranslatorPage}/>
 			<Route exact path="/translation/:translationid" component={TranslationDetailsPage}/>
 			<Route path="/translation/:translationid/edit" component={EditorPage}/>
 			<Route path="/translation/:translationid/confirm" component={ConfirmationPage}/>
