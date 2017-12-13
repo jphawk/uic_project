@@ -123,7 +123,7 @@ render() {
 									</select>
 									</div>
                                     
-                                    <a href="/" class="add-lg">+ Add one more language</a>
+                  <a href="/" class="add-lg">+ Add one more language</a>
 									
 									<label id="select-link-label">Find out more about <br/> CEFR language levels  <a href="https://www.coe.int/en/web/common-european-framework-reference-languages/" title="About CEFR">HERE</a></label>
 								

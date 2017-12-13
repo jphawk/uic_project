@@ -38,7 +38,7 @@ class App extends Component {
 			requests = JSON.parse(localStorage.getItem("requests"));
 		}else{
 			//Request/Translation information
-			requests.push({id: 1, title: 'Instructions for a German travel card', requesterName: 'Alan Muller', 																											requester: 'alan.muller@gmail.com', translator: '',
+			requests.push({id: 1, title: 'Instructions for a German travel card', requesterName: 'Alan Muller', 																											requester: 'alan.muller@gmail.com', translator: 'john.penwood@gmail.com', translatorName: 'John Penwood',
 									 wordCount: 1623, pages: 3, status: 20, source: 'German', target: 'Finnish', sample: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', fullText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'});
 		}
 
@@ -55,7 +55,8 @@ class App extends Component {
 			<Route exact path="/" component={LoginPage}/>
 			<Route path="/signup" component={SignUpPage}/>
 			<Route path="/logout" component={LogOutPage}/>
-			<Route path="/requester" component={RequesterPage}/>
+			<Route exact path="/requester" component={RequesterPage}/>
+			<Route path="/requester/:requestid" component={RequesterPage}/>
 			<Route exact path="/request/:requestid" component={RequestDetailsPage}/>
 			<Route path="/translator" component={TranslatorPage}/>
 			<Route exact path="/translation/:translationid" component={TranslationDetailsPage}/>
