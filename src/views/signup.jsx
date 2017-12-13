@@ -69,7 +69,7 @@ handleSubmit = (event) => {
 render() {
 	return (
 
-		<div>
+		<div className="page-wrapper">
 			<Helmet>
 				<meta charset="utf-8"/>
 				<title>Sign Up</title>

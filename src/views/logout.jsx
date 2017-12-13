@@ -15,7 +15,7 @@ export default class LogOutPage extends Component {
 	
 		return (
 
-			<div>
+			<div className="page-wrapper">
 				<Helmet>
 					<meta charset="utf-8"/>
 					<title>Log Out</title>

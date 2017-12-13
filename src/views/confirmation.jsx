@@ -9,7 +9,7 @@ export default class ConfirmationPage extends Component {
 	render() {
 				
 		return (
-			<div>
+			<div className="page-wrapper">
 				<Helmet>
 					<meta charset="utf-8" />
 					<title>Confirmation</title>

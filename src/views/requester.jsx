@@ -106,7 +106,7 @@ export default class RequesterPage extends Component {
 	render() {	
 
 		return (
-			<div>
+			<div className="page-wrapper">
 				<Helmet>
 					<meta charset="utf-8" />
 					<title>Requestor's Dashboard</title>

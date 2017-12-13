@@ -109,7 +109,7 @@ export default class EditorPage extends Component {
 	render() {
 
 		return (
-			<div>
+			<div className="page-wrapper">
 				<Helmet>
 					<meta charset="utf-8" />
 					<title>Translator's Dashboard</title>

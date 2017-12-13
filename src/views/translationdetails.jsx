@@ -31,7 +31,7 @@ export default class TranslationDetailsPage extends Component {
 		var newLink = '/translation/' + this.props.match.params.translationid + '/edit';
 		
 		return (
-			<div>
+			<div className="page-wrapper">
 			<Helmet>
 				<meta charset="utf-8" />
 				<title>Request's description for Translator</title>
