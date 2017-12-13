@@ -3,7 +3,6 @@ import {Helmet} from "react-helmet";
 import App from '../App';
 import './css/styles.css';
 import logo from './img/capricorn.png';
-import DataModule from '../DataModule';
 
 export default class Header extends Component { 	
 

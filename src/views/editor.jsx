@@ -61,7 +61,10 @@ export default class EditorPage extends Component {
 	}
 
 	//Dictionary word-by-word using Yandex Translate API; Dictionary aPI does not support our languages
-	dictionarySearch = () => {
+	dictionarySearch = (event) => {
+		event.preventDefault();
+		event.stopPropagation();
+		
 		var word = document.getElementById('search-input').value;
 		var source = document.getElementById('dictionary-from').value;
 		var target = document.getElementById('dictionary-to').value;
@@ -158,7 +161,7 @@ export default class EditorPage extends Component {
 
 									<h2>Dictionary</h2>
 									<div id="dictionary-wrapper">
-										<form action="search">
+										<form onSubmit = {this.dictionarySearch}>
 											<h3>Translate</h3>
 											<div id="dictionary-float">
 												<select id="dictionary-from" className="df-input classic">
@@ -170,7 +173,7 @@ export default class EditorPage extends Component {
 											</div>
 
 											<input type="text" placeholder="Search for a word..." className="dict-search" id='search-input' name="search" />
-											<input type="button" value=" " className="form-submit dark-button" onClick={this.dictionarySearch} />
+											<button type="submit" value=" " className="form-submit dark-button" />
 										</form>
 										
 										<div id="dictionary-results" />
