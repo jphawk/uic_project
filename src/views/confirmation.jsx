@@ -16,6 +16,8 @@ export default class ConfirmationPage extends Component {
 					<meta name="confirmation" content="Confirmation page" />
 					<meta name="author" content="Team Translator" />
 				</Helmet>
+				
+				<Header />
 
 				<div id="page-confirmation" class="page">
 					<div id="content" className="confirmation">

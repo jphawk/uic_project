@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import {Helmet} from "react-helmet";
 import App from '../App';
 import './css/styles.css';
-import logo from './img/capricorn.png';
-import './img/search.png';
-import DataModule from '../DataModule';
 import { Link } from 'react-router-dom';
+import logo from './img/capricorn.png';;
 
 export default class SignUpPage extends Component {   
 
@@ -80,7 +78,7 @@ render() {
 			<div id="page-signup" className="page">
 				<div id="content" className="login-signup">
 					<div className="form-top">
-						<img src="img/capricorn.png" alt="Translator logo" className="logo-form" />
+						<img src={logo} alt="Translator logo" className="logo-form" />
 						<h1>Translator</h1>
 					</div>
 					<form  accepted-charset="UTF-8" id="signup" className="webform-processed">

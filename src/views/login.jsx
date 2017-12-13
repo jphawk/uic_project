@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Helmet} from "react-helmet";
 import App from '../App';
 import './css/styles.css';
-import DataModule from '../DataModule';
+import logo from './img/capricorn.png';
 import { Link } from 'react-router-dom';
 
 export default class LoginPage extends Component {  
@@ -59,7 +59,7 @@ export default class LoginPage extends Component {
 					<div id="page-login" className="page">
 						<div id="content" className="login-signup">
 							<div className="form-top">
-								<img src="img/logo.png" alt="Translator logo" className="logo-form" />
+								<img src={logo} alt="Translator logo" className="logo-form" />
 								<h1>Translator</h1>
 							</div>
 							<form accepted-charset="UTF-8" id="login" className="webform-processed" onSubmit={this.handleSubmit}>

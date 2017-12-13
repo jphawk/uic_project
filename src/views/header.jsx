@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Helmet} from "react-helmet";
 import App from '../App';
 import './css/styles.css';
-import './img/capricorn.png';
+import logo from './img/capricorn.png';
 import DataModule from '../DataModule';
 
 export default class Header extends Component { 	
@@ -13,7 +13,7 @@ export default class Header extends Component {
 			<header className="header" id="header">
 				<div className="headerwrapper">
 					<div id="header-logo">
-						<img src="./img/capricorn.png" alt="Translator logo" className="logo-top" />
+						<img src={logo} alt="Translator logo" className="logo-top" />
 						<h2>Translator</h2>
 					</div>
 					<div id="header-right">

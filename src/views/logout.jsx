@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Helmet} from "react-helmet";
 import App from '../App';
 import './css/styles.css';
-import DataModule from '../DataModule';
+import logo from './img/capricorn.png';
 
 export default class LogOutPage extends Component {    
 	
@@ -26,7 +26,7 @@ export default class LogOutPage extends Component {
 				<div id="page-logout" class="page">
 					<div id="content" class="login-signup">
 						<div class="form-top">
-							<img src="img/logo.png" alt="Translator logo" class="logo-form" />
+							<img src={logo} alt="Translator logo" class="logo-form" />
 							<h1>Translator</h1>
 						</div>
 						<div id="logout-info">
@@ -35,7 +35,6 @@ export default class LogOutPage extends Component {
 						</div>
 					</div>
 				</div>
-
 			</div>
 
 		);
