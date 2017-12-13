@@ -3715,7 +3715,18 @@ select.classic:focus {
     font-size:1em;
 }
 
-	
+#rq-form .label-input-wrapper.five label{
+    background-image:url("../img/question.png");
+	background-repeat:no-repeat;
+	background-position:center left 220px;
+	background-size:20px auto;
+    width:270px;
+}	
+
+#rq-form .label-input-wrapper.five label .tooltiptext {
+    left: 85%;
+    width:120px;
+}
 
 @media screen and (max-width: 1000px) {
 #page-edit-translation .progress-wrapper{
@@ -3743,7 +3754,9 @@ select.classic:focus {
 	#edit-area {
 	margin-top:30px;
 }
-
+#rq-form input[type="submit"] {
+     width:110px;
+}
 }
 
 @media screen and (max-width: 400px) {
@@ -3809,7 +3822,18 @@ select.classic:focus {
 	font-size:15px;
   }
 
-}		
+}	
+
+
+@media screen and (min-width: 857px) {
+    #rq-form .label-input-wrapper.five label {
+        width: 240px;
+    }
+    
+    #rq-form .label-input-wrapper.five label .tooltiptext {
+        left: 96%;
+}
+}
 
 @media screen and (min-width: 980px) {
 #dictionary-wrapper .form-submit {
