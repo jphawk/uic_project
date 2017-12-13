@@ -227,6 +227,10 @@
 		.progress-wrapper {
 			right:40px;
 	}
+        
+        #tr-form .submit-wrapper {
+            margin-top:10px;
+        }
 
 	}
 
@@ -3161,9 +3165,9 @@
 		width:100px;
 	}		
 	}
+    #edit-area:after,
 	#wrapper-select-lg div:after,
 	#wrapper-select-lg:after,
-	#edit-control-wrapper:after,
 	#dictionary-float:after,
 	#dictionary-wrapper:after,
 	#edit-wrapper:after,
@@ -3360,13 +3364,40 @@ select.classic:focus {
 		text-decoration:none;
 	}
 
+#page-edit-translation p{
+    margin-bottom:1em;
+}
+
+#dictionary-float {
+    margin-bottom:25px;
+}
+
 /*Tooltip*/
+
 
 #rq-form .tooltip:first-child {
 	background-image:url("../img/question.png");
 	background-repeat:no-repeat;
 	background-position:center right 15px;
 	background-size:20px auto;
+}
+
+#edit-form-wrapper .tooltip .tooltiptext {
+    font-size:14px;
+    width:180px;
+    left: 110px;
+}
+
+
+#edit-form-wrapper .tooltip:first-child {
+	background-image:url("../img/question.png");
+	background-repeat:no-repeat;
+	background-position:center left 230px;
+	background-size:20px auto;
+}
+
+#edit-form-wrapper .tooltip {
+    width:100%;
 }
 
 .tooltip {
@@ -3402,6 +3433,11 @@ select.classic:focus {
     border-style: solid;
     border-color: #555 transparent transparent transparent;
 }
+
+#edit-form-wrapper .tooltip .tooltiptext::after {
+    content: none;   
+}
+
 
 .tooltip:hover .tooltiptext {
     visibility: visible;
@@ -3507,17 +3543,22 @@ select.classic:focus {
     right: 40px;
 }
 
-#edit-control-wrapper {
-	margin-bottom:70px;
-}
-
 #edit-form-wrapper {
 	margin-top:40px;
 	margin-bottom:30px;
 }
 
 #edit-buttons-wrapper {
+    margin-top:30px;
+    margin-bottom:30px;
+}
+
+#edit-buttons-wrapper a{
 	font-size:14px;
+}
+
+#edit-buttons-wrapper .dark-link{
+	margin-right:20px;
 }
 
 #wrapper-radio-tr-rq {
@@ -3612,6 +3653,20 @@ select.classic:focus {
 		margin-right:10px;
 	}
 
+#edit-tabs section {
+    height:300px;
+    overflow:auto;
+    border-bottom:1px solid #ddd;
+}
+
+#edit-radio-wrapper {
+    margin-top:25px;
+}
+
+#edit-radio-wrapper label{
+    font-size:1em;
+}
+
 	
 
 @media screen and (max-width: 1000px) {
@@ -3662,6 +3717,13 @@ select.classic:focus {
 		width:100%;
 		margin:0;
 	}
+#edit-form-wrapper .tooltip .tooltiptext::after {
+    content: "";
+}
+    
+#edit-form-wrapper .tooltip .tooltiptext {
+    left: 210px;
+}    
 }
 
 @media screen and (min-width: 600px) {
@@ -3684,43 +3746,18 @@ select.classic:focus {
 	margin-right:5%;
 	float:left;
 }
-#edit-area textarea {
-	width:47.5%;
-	height:300px;
-	float:left;
-}
 #edit-area {
+	width:47.5%;
+	height:366px;
+	float:left;
     padding-top: 66px;
 }
+
   #edit-tabs  label {
     padding: 10px;
 	font-size:15px;
   }
-#edit-radio-wrapper,
-#edit-buttons-wrapper {
-	float:left;
-}
-#edit-buttons-wrapper {
-	width:300px;
-	text-align:right;
-}
 
-#edit-radio-wrapper {
-	width:calc(100% - 300px);
-    margin-bottom: 0;
-}
-#edit-form-wrapper {
-	margin-top: 0;
-    margin-bottom: 0;
-}
-
-#edit-control-wrapper {
-	margin-top: 40px;
-    margin-bottom: 30px;
-}
-#edit-buttons-wrapper {
-	margin-top:10px;
-}
 }		
 
 @media screen and (min-width: 980px) {
@@ -3737,7 +3774,16 @@ select.classic:focus {
 .tooltip .tooltiptext {
     left: 66.5%;
 }
+    
+#edit-form-wrapper .tooltip:first-child {
+	background-position:center left 220px;
+}
 
+
+#edit-form-wrapper .tooltip .tooltiptext {
+    left: 200px;
+}
+    
 }
 
 @media screen and (min-width: 1000px) {
@@ -3747,5 +3793,8 @@ select.classic:focus {
 }
 #edit-area {
     padding-top: 76px;
+}
+#edit-buttons-wrapper {
+    margin-top: 10px;
 }
 }	
