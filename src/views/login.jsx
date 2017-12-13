@@ -49,7 +49,7 @@ export default class LoginPage extends Component {
 			errorList += '<p>' + this.state.errors[i] + '</p>';
 		}
 		
-		document.getElementById("errors").innerHTML = this.state.errors;
+		document.getElementById("errors").innerHTML = errorList;
 
 	}
 	
