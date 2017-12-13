@@ -4,10 +4,52 @@ import App from '../App';
 import './css/styles.css';
 import Header from './header';
 
-export default class TranslatorPage extends Component {    
+export default class TranslatorPage extends Component {
 	
-	viewTranslationDetails = (translationId) => {
+	userTranslations = [];
+	tableRows = [];
+	
+	constructor(props) {
+		super(props);
+		
+		this.getUserTranslations();
+	}
+
+	viewTranslationDetails = (event) => {
+		
+		var translationId = event.currentTarget.id;
+
 		this.props.history.push('/translation/' + translationId);
+	}
+	
+	//Get own requests based on email
+
+	getUserTranslations = (userId) => {
+		var requests = JSON.parse(localStorage.getItem("requests"));
+
+		for (var key in requests){
+			if (requests[key].translator == localStorage.getItem("loggedIn")){			
+
+				//Correct user, add to user requests
+				this.userTranslations.push(requests[key]);
+
+			}
+		}
+		
+		if (this.userTranslations.length > 0){
+
+			for (var key in this.userTranslations){
+
+				this.tableRows.push(<tr id={this.userTranslations[key].id} key={this.userTranslations[key].id} onClick= {this.viewTranslationDetails}> 
+						<td> {this.userTranslations[key].title} </td>
+						<td> {this.userTranslations[key].status} % ready </td>
+						<td> {this.userTranslations[key].wordCount} </td>
+						<td> {this.userTranslations[key].description} </td>
+					</tr> );
+			}
+		}else{
+			this.tableRows.push(<tr colSpan="4"> No translations yet </tr>);
+		}
 	}
 
 	render() {
@@ -46,12 +88,7 @@ export default class TranslatorPage extends Component {
 										Comments
 									</th>
 								</tr>
-								<tr className="tr-hover" onClick= {() => { this.viewTranslationDetails(23)}}>
-									<td>My translation</td>
-									<td>80% ready</td>
-									<td>1623</td>
-									<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </td>
-								</tr>
+								{this.tableRows}
 								</tbody>
 							</table>
 						</div>

@@ -4,7 +4,27 @@ import App from '../App';
 import './css/styles.css';
 import Header from './header';
 
-export default class TranslationDetailsPage extends Component {    
+export default class TranslationDetailsPage extends Component {   
+	
+	constructor(props) {
+		super(props);
+		
+		this.state = {currentTranslation : {}};
+		
+		this.getTranslation();
+	}	
+
+	getTranslation = () => {
+		var requests = JSON.parse(localStorage.getItem("requests"));
+
+		for (var key in requests){
+			if (requests[key].id == this.props.match.params.translationid){			
+
+				//Correct user, add to user requests
+				this.state.currentTranslation = requests[key];
+			}
+		}
+	}
 
 	
 	render() {
@@ -24,22 +44,22 @@ export default class TranslationDetailsPage extends Component {
 
 			<div id="page-tr-description" className="page">
 				<div id="content" className="description">
-					<h1>Instructions for a German travel card</h1>
+					<h1>{this.state.currentTranslation.title}</h1>
 					<h2>Translation's description</h2>
-					<p><b>Requestor:</b> Alan Muller</p>
-					<p><b>Requestor's email:</b> alan.muller@gmail.com</p>
-					<p><b>Number of pages:</b> 3</p>
-					<p><b>Word count:</b> 1623</p>
-                    <p><b>Comments:</b> Description here</p>
-					<p><b>Text sample:</b>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. "</p>
+					<p><b>Requestor:</b> {this.state.currentTranslation.requesterName}</p>
+					<p><b>Requestor's email:</b> {this.state.currentTranslation.requester}</p>
+					<p><b>Number of pages:</b> {this.state.currentTranslation.pages}</p>
+					<p><b>Word count:</b> {this.state.currentTranslation.words}</p>
+                    <p><b>Comments:</b> {this.state.currentTranslation.description}</p>
+					<p><b>Text sample:</b> {this.state.currentTranslation.fullText.split(/\s+/).slice(0,20).join(" ")}</p>
 					<div className>
 						<a className="dark-link" href="/translator" title="Back to the Dashboard">Back to the dashboard</a>
 						<a className="light-link tr-description-link" href={newLink} title="Continue with this translation">Continue with this translation</a>
 						<div className="progress-wrapper">
 							<h2>Status</h2>
 							<div className="progress-bar-outer">
-								<div className="progress-bar-inner">
-									25%
+								<div className="progress-bar-inner" style={{width: this.state.currentTranslation.status + "%"}}>
+									{this.state.currentTranslation.status}%
 								</div>
 							</div>
 						</div>

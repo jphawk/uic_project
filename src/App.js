@@ -25,20 +25,21 @@ class App extends Component {
 
 		var logins = [];
 		var requests = [];
-
+		
 		if (localStorage.getItem("logins") !== null){
 			logins = JSON.parse(localStorage.getItem("logins"));
 		}else{
 			//Login information
-			logins.push({user: 'user@a.com', password: 'pass', type: 'requester', name: 'Requester Test'})
-			logins.push({user: 'translator@a.com', password: 'password', type: 'translator', name: 'Translator Tests'});
+			logins.push({user: 'alan.muller@gmail.com', password: 'pass', type: 'requester', name: 'Alan Muller'})
+			logins.push({user: 'john.penwood@gmail.com', password: 'password', type: 'translator', name: 'John Penwood',
+									 languages: [{English: 'C2'}, {German: 'C1'}, {Finnish: 'C1'}]});
 		}
 
 		if (localStorage.getItem("requests") !== null){
 			requests = JSON.parse(localStorage.getItem("requests"));
 		}else{
 			//Request/Translation information
-			requests.push({id: 1, title: 'Instructions for a German travel card', requesterName: 'Alan Muller', 																											requester: 'alan.muller@gmail.com', translator: 'john.penwood@gmail.com', translatorName: 'John Penwood',
+			requests.push({id: 1, title: 'Instructions for a German travel card', requesterName: 'Alan Muller', 																										requester: 'alan.muller@gmail.com', translator: 'john.penwood@gmail.com', translatorName: 'John Penwood',
 									 wordCount: 1623, pages: 3, status: 20, source: 'German', target: 'Finnish', sample: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', fullText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'});
 		}
 

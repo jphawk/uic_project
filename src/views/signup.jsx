@@ -99,7 +99,9 @@ render() {
 								<label htmlFor="radio-requestor">Requestor</label>
 							</div>
 							
+							{!this.state.translatorSelected ?
 							<label id="rq-explain">Requestor profile will give your functionality for ordering translations</label>
+							: null }
 
 							{this.state.translatorSelected ?
 								<div id="wrapper-select-lg">
@@ -123,7 +125,7 @@ render() {
 									</select>
 									</div>
                                     
-                  <a href="/" class="add-lg">+ Add one more language</a>
+                  <a onClick={this.addNewLanguage} className="add-lg">+ Add one more language</a>
 									
 									<label id="select-link-label">Find out more about <br/> CEFR language levels  <a href="https://www.coe.int/en/web/common-european-framework-reference-languages/" title="About CEFR">HERE</a></label>
 								
