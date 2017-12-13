@@ -3243,7 +3243,6 @@
 
 #yandex-wrapper {
     text-align:right;
-    margin-top: -55px;
 }
 	
 	.footer {
@@ -3261,13 +3260,17 @@
 		margin-bottom:30px;
 	}
 	
-	#select-lg,
-	#select-level {
+	.select-lg,
+	.select-level {
 		width:47.5%;
 		float:left;
 	}
 	
-	#select-lg {
+#wrapper-select-lg .one {
+        margin-bottom:20px;
+}
+
+	.select-lg {
 		margin-right:5%;
 	}
 	
@@ -3806,6 +3809,9 @@ select.classic:focus {
 	#bottom-link-confirmation {
 		margin-top:40px;
 	}
+    #yandex-wrapper {
+  margin-top: -55px; 
+}
 }
 
 

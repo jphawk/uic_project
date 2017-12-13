@@ -103,9 +103,10 @@ render() {
 							: null }
 
 							{this.state.translatorSelected ?
-								<div id="wrapper-select-lg">
-									<div>
-										<select id="select-lg" className="classic">
+								<div id="wrapper-select-lg" className="one">
+                                    <label>Your language skills:</label>
+                                    <div className="one">
+										<select className="select-lg classic">
 											<option value="" disabled selected>Language</option>
 											<option value="Finnish">Finnish</option>
 											<option value="Swedish">Swedish</option>
@@ -115,7 +116,7 @@ render() {
 											<option value="Romanian">Romanian</option>
 										</select>
 
-										<select id="select-level" className="classic">
+										<select className="select-level classic">
 											<option value="" disabled selected>Level</option>
 											<option value="B2.2">B2.2</option>
 											<option value="C1.1">C1.1</option>
@@ -124,8 +125,26 @@ render() {
 										</select>
 									</div>
                                     
-                  <a onClick={this.addNewLanguage} className="add-lg">+ Add one more language</a>
-									
+                                    <div className="two">
+										<select className="select-lg classic">
+											<option value="" disabled selected>Language</option>
+											<option value="Finnish">Finnish</option>
+											<option value="Swedish">Swedish</option>
+											<option value="English">English</option>
+											<option value="German">German</option>
+											<option value="Russian">Russian</option>
+											<option value="Romanian">Romanian</option>
+										</select>
+
+										<select className="select-level classic">
+											<option value="" disabled selected>Level</option>
+											<option value="B2.2">B2.2</option>
+											<option value="C1.1">C1.1</option>
+											<option value="C1.2">C1.2</option>
+											<option value="C2">C2</option>
+										</select>
+									</div>
+                  					
 									<label id="select-link-label">Find out more about <br/> CEFR language levels  <a href="https://www.coe.int/en/web/common-european-framework-reference-languages/" title="About CEFR">HERE</a></label>
 								
 								</div> :
