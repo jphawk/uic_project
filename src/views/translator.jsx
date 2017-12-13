@@ -57,7 +57,7 @@ export default class TranslatorPage extends Component {
 					</tr> );
 			}
 		}else{
-			this.tableRows.push(<tr colSpan="4"> No translations yet </tr>);
+			this.tableRows.push(<td className="no-requests" colSpan="5"> No translations yet </td>);
 		}
 	}
 	
@@ -131,21 +131,21 @@ export default class TranslatorPage extends Component {
 							<table id="tr-table">
 								<tbody>
 								<tr>
-									<th colSpan="4">From German to Finnish</th>
-								</tr>
-								<tr>
-									<th style={{width: 120}}>
-										Request's name
-									</th>
-									<th style={{width: 120}}>
-										Request's status
-									</th>
-									<th style={{width: 80}}>
-										Word count
-									</th>
-									<th>
-										Comments
-									</th>
+									<th style= {{width: 140}}>
+											Request's name
+										</th>
+                                        <th style= {{width: 140}}>
+                                            Languages: from...to
+                                        </th>
+										<th style={{width: 140}}>
+											Request's status
+										</th>
+										<th style={{width: 100}}>
+											Word count
+										</th>
+										<th>
+											Comments
+										</th>
 								</tr>
 								{this.tableRows}
 								</tbody>
