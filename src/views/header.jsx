@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
 import App from '../App';
 import './css/styles.css';
 import logo from './img/capricorn.png';
@@ -17,7 +17,7 @@ export default class Header extends Component {
 					</div>
 					<div id="header-right">
 						<a className="logout-link" href="/logout">Log out</a>
-						<p>Welcome, {localStorage.getItem("loggedIn")}!</p>
+						<p>Welcome, {localStorage.getItem("loggedInName")}!</p>
 					</div>
 				</div>
 			</header>

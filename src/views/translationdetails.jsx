@@ -12,8 +12,10 @@ export default class TranslationDetailsPage extends Component {
 		this.state = {currentTranslation : {}};
 		
 		this.getTranslation();
+		
+		
 	}	
-
+	
 	getTranslation = () => {
 		var requests = JSON.parse(localStorage.getItem("requests"));
 
@@ -27,9 +29,7 @@ export default class TranslationDetailsPage extends Component {
 	}
 
 	
-	render() {
-		var newLink = '/translation/' + this.props.match.params.translationid + '/edit';
-		
+	render() {		
 		return (
 			<div className="page-wrapper">
 			<Helmet>
@@ -54,13 +54,18 @@ export default class TranslationDetailsPage extends Component {
 					<p><b>Text sample:</b> {this.state.currentTranslation.fullText.split(/\s+/).slice(0,20).join(" ")}</p>
 					<div className>
 						<a className="dark-link" href="/translator" title="Back to the Dashboard">Back to the dashboard</a>
-						<a className="light-link tr-description-link" href={newLink} title="Continue with this translation">Continue with this translation</a>
+						<a className="light-link tr-description-link" href={'/translation/' + this.props.match.params.translationid + '/edit'} title="Continue with this translation">Continue with this translation</a>
 						<div className="progress-wrapper">
 							<h2>Status</h2>
 							<div className="progress-bar-outer">
+								{this.state.currentTranslation.status > 0 ?
 								<div className="progress-bar-inner" style={{width: this.state.currentTranslation.status + "%"}}>
 									{this.state.currentTranslation.status}%
+								</div>:
+								<div className="progress-bar-inner" style={{color: "#000", backgroundColor: "#f1f1f1"}}>
+									{this.state.currentTranslation.status}%
 								</div>
+									}
 							</div>
 						</div>
 					</div>
