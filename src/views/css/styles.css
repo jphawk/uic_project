@@ -3636,14 +3636,17 @@ select.classic:focus {
 	#bottom-link-confirmation {
 		margin-top:50px;
 	}
-	
-	#bottom-link-confirmation a{
-		background-color:#355f93;
-	}
-	
-	#bottom-link-confirmation a:hover{
-		background-color:#4b719f;
-	}
+    
+    #confirmation-buttons-wrapper .dark-link {
+        margin-bottom:10px;
+}
+.confirmation h3 {
+    margin-top:-10px;
+    margin-bottom:40px;
+    color: black;
+    font-weight: bold;
+}
+    
 	
 	#confirmation-buttons-wrapper {
 		margin-top:20px;
@@ -3735,7 +3738,7 @@ select.classic:focus {
 	}
 	
 	#bottom-link-confirmation {
-		margin-top:60px;
+		margin-top:40px;
 	}
 }
 
