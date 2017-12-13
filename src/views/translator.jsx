@@ -104,7 +104,7 @@ export default class TranslatorPage extends Component {
 		}
 		
 		if (this.searchTableRows.length === 0){
-			this.searchTableRows.push(<tr><td colSpan = "3">No results found with this criteria</td></tr>)
+			this.searchTableRows.push(<tr><td className="no-requests" colSpan = "3">No results found with this criteria</td></tr>)
 		}	
 		
 		this.setState({searchDone : true});
@@ -191,10 +191,10 @@ export default class TranslatorPage extends Component {
 							<table id="search-table">
 								<tbody>
 								<tr>
-									<th style={{width: 120}}>
+									<th style={{width: 140}}>
 										Request's name
 									</th>
-									<th style={{width: 120}}>
+									<th style={{width: 140}}>
 										Word count
 									</th>
 									<th>

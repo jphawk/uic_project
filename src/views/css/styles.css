@@ -134,12 +134,18 @@
 	
 	#tr-form .label-input-wrapper.one,
 	#tr-form .label-input-wrapper.two {
-		width:calc((100% - 110px)/2);
 		float:left;
+        max-width:320px;
+        margin-bottom:20px;
 	}
+
+    #tr-form .label-input-wrapper.one {
+        margin-right:60px;
+    }
+
 	#tr-form .submit-wrapper {
 		width:110px;
-		float:left;
+		float:right;
 		margin-top: 32px;
 	}
 	
@@ -230,7 +236,12 @@
         
         #tr-form .submit-wrapper {
             margin-top:10px;
+            float:none;
         }
+        
+        #tr-form .label-input-wrapper.one {
+        margin-right:0;
+    }
 
 	}
 
@@ -3265,6 +3276,7 @@ select.classic:focus {
 		margin-bottom:20px;
 	}
 	
+    .label-input-wrapper select,
 	.label-input-wrapper label, 
 	.label-input-wrapper input,
 	.label-input-wrapper textarea {
@@ -3354,6 +3366,8 @@ select.classic:focus {
 		padding:20px;
 		width: 100%;
 		max-width: 900px;
+        margin-top: 20px;
+        margin-bottom: 50px;
 	}
 	
 	#confirmation-block p{
@@ -3691,6 +3705,9 @@ select.classic:focus {
   #edit-area {
 	margin-top:30px;
 }
+#header-right {
+    font-size:14px;
+	}
 }
 
 @media screen and (max-width: 600px) {
