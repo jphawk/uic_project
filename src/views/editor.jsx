@@ -68,20 +68,19 @@ export default class EditorPage extends Component {
 		event.stopPropagation();
 		
 		var word = document.getElementById('search-input').value;
-		var source = document.getElementById('dictionary-from').value;
-		var target = document.getElementById('dictionary-to').value;
+		var languages = document.getElementById('dictionary-langs').value;
 
 		var self = this;
 
 		fetch('https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20171213T014034Z.e1196a425bed27ba.a17e5539b7bcc4c58f6a7935df5187d0a5a00369&text='+ 
 					word
-					+'&lang='+ source + '-' + target)
+					+'&lang='+ languages)
 			.then(function(response) {
 				return response.json();
 			}).then(function(data) {
 				self.setState({ data }, () => console.log(self.state));
 				var div = document.getElementById('dictionary-results');
-				div.innerHTML = word + ' (' + source + ') : ' + data.text[0] + ' (' + target + ')';
+				div.innerHTML = word + ':' + data.text[0] ;
 			});
 
 	}
@@ -176,12 +175,10 @@ export default class EditorPage extends Component {
 										<form onSubmit = {this.dictionarySearch}>
 											<h3>Translate</h3>
 											<div id="dictionary-float">
-												<select id="dictionary-from" className="df-input classic">
-													<option value={this.state.sourceCode} defaultValue>{this.state.currentTranslation.source}</option>
-												</select>
-												<select id='dictionary-to' className="df-input classic">
-													<option value={this.state.targetCode} defaultValue>{this.state.currentTranslation.target}</option>
-												</select>
+												<select id="dictionary-langs" className="df-input classic">
+													<option value={this.state.sourceCode + '-' + this.state.targetCode} defaultValue>{this.state.currentTranslation.source} to {this.state.currentTranslation.target} </option>
+													<option value={this.state.targetCode + '-' + this.state.sourceCode} >{this.state.currentTranslation.target} to {this.state.currentTranslation.source} </option>
+												</select>												
 											</div>
 
 											<input type="text" placeholder="Search for a word..." className="dict-search" id='search-input' name="search" />
