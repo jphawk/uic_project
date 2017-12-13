@@ -101,6 +101,9 @@ export default class EditorPage extends Component {
 				requests[key].translatedText = this.state.translatedText;
 				requests[key].translator = localStorage.getItem("loggedIn");
 				requests[key].translatorName = localStorage.getItem("loggedInName");
+				
+				//Update status if work has been done; this is not a reliable formula, we just use it for the purpose of showing the change in the interface
+				requests[key].status = Math.floor(requests[key].translatedText.split(' ').length / requests[key].fullText.split(' ').length * 100);
 			}
 		}
 		
