@@ -151,8 +151,7 @@ export default class RequesterPage extends Component {
 						{ this.props.match.params.requestid != null ?
 							<div id="confirmation-block">
 								<h3>Your translation request was successfully submitted!</h3>
-								<p>We will inform you by email, when your translation will be ready. <br/>
-								You can also see its status in your <a href="/requester" title="Dashboard">Dashboard </a></p>
+								<p>We will inform you by email, when your translation will be ready.</p>
 							</div> :
 							null
 						}
