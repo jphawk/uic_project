@@ -173,6 +173,12 @@ export default class RequesterPage extends Component {
 									<label>From which language your <br/>text should be translated?</label>
                                     <select name="lng-from" className="rq-input" className="classic" value={this.state.langFrom} onChange={this.handleChangeLangFrom}>
 											<option value="" defaultValue>From</option>
+                                            <option value="Finnish">Finnish</option>
+											<option value="Swedish">Swedish</option>
+											<option value="English">English</option>
+											<option value="German">German</option>
+											<option value="Russian">Russian</option>
+											<option value="Romanian">Romanian</option>
 									</select>
 									</div>
 
@@ -180,6 +186,12 @@ export default class RequesterPage extends Component {
 									<label>To which language your<br/> text should be translated?</label>
                                     <select name="lng-to" className="rq-input" className="classic" value={this.state.langTo} onChange={this.handleChangeLangTo}>
 											<option value="" defaultValue>To</option>
+                                            <option value="Finnish">Finnish</option>
+											<option value="Swedish">Swedish</option>
+											<option value="English">English</option>
+											<option value="German">German</option>
+											<option value="Russian">Russian</option>
+											<option value="Romanian">Romanian</option>
 									</select>
 								</div>
 

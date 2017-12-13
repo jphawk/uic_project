@@ -3198,7 +3198,7 @@
 	#wrapper-select-lg div:after,
 	#wrapper-select-lg:after,
 	#dictionary-float:after,
-	#dictionary-wrapper:after,
+	.dictionary-wrapper:after,
 	#edit-wrapper:after,
 	#tr-form-wrapper:after,
 	#tr-form .form-submit:after,
@@ -3240,6 +3240,11 @@
 	#tr-search-wrapper {
 		margin-top:40px;
 	}
+
+#yandex-wrapper {
+    text-align:right;
+    margin-top: -55px;
+}
 	
 	.footer {
         margin-top:40px;

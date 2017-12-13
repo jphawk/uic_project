@@ -166,10 +166,9 @@ export default class EditorPage extends Component {
 
 								<section id="content3">
 
-									<h2>Dictionary</h2>
 									<div id="dictionary-wrapper">
-										<form onSubmit = {this.dictionarySearch}>
-											<h3>Translate</h3>
+										<form className="dictionary-wrapper" onSubmit = {this.dictionarySearch}>
+											<h3>Translate From... To...</h3>
 											<div id="dictionary-float">
 												<select id="dictionary-from" className="df-input classic">
 													<option value={this.state.sourceCode} defaultValue>{this.state.currentTranslation.source}</option>
@@ -184,7 +183,7 @@ export default class EditorPage extends Component {
 										</form>
 										
 										<div id="dictionary-results" />
-										
+                                        
 									</div>
 
 								</section>
@@ -217,6 +216,10 @@ export default class EditorPage extends Component {
 								<a className="dark-link" title="Save and Continue" onClick={this.saveAndContinue}>Save and Continue</a>
 								<a className="light-link" href="/translator" title="Cancel">Cancel</a>
 							</div>
+                            
+                            <div id="yandex-wrapper">
+                            <a className="yandex-dictionary" href="https://tech.yandex.com/dictionary/" title="Yandex Dictionary">Powered by Yandex.Dictionary</a>
+                            </div>
 						</div>
 
 					</div>
