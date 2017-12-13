@@ -90,7 +90,7 @@ export default class RequesterPage extends Component {
 			newRequest.wordCount = newRequest.fullText.split(" ").length;
 
 			//Find pages by dividing words to averga eword count per page(500)
-			newRequest.pages = newRequest.wordCount / 500 + 1;
+			newRequest.pages = Math.floor(newRequest.wordCount / 500) + 1;
 
 			requests.push(newRequest);	
 			localStorage.setItem("requests", JSON.stringify(requests));
