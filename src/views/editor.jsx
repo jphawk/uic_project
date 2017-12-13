@@ -5,13 +5,13 @@ import './css/styles.css';
 import Header from './header';
 
 export default class EditorPage extends Component { 	
-	
-	
-	
-	
+
+
+
+
 	constructor(props) {
 		super(props);
-		
+
 		var languageCodes = {
 			Finnish : 'fi',
 			Swedish : 'sv',
@@ -20,15 +20,15 @@ export default class EditorPage extends Component {
 			Russian : 'ru',
 			Romanian : 'ro'
 		};
-		
+
 		this.state = {currentTranslation : {}, targetCode: '', sourceCode: ''};
-		
+
 		this.getTranslation();
-		
+
 		//Get language codes here, to make things a bit simpler
 		this.state.sourceCode = languageCodes[this.state.currentTranslation.source];
 		this.state.targetCode = languageCodes[this.state.currentTranslation.target];
-	
+
 		this.getAutoTranslation();
 	}	
 
@@ -43,26 +43,47 @@ export default class EditorPage extends Component {
 			}
 		}
 	}
-	
+
 	//AutoTranslation using Yandex API
 	getAutoTranslation = () => {
 		var self = this;
-				
+
 		fetch('https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20171213T014034Z.e1196a425bed27ba.a17e5539b7bcc4c58f6a7935df5187d0a5a00369&text='+ 
 					this.state.currentTranslation.fullText
 					+'&lang='+ this.state.sourceCode + '-' + this.state.targetCode)
-				.then(function(response) {
-					return response.json();
-				}).then(function(data) {
-					 self.setState({ data }, () => console.log(self.state));
-					 var div = document.getElementById('content2');
+			.then(function(response) {
+				return response.json();
+			}).then(function(data) {
+				self.setState({ data }, () => console.log(self.state));
+				var div = document.getElementById('content2');
 
-					div.innerHTML += data.text[0];
-				});
+				div.innerHTML += data.text[0];
+			});
+	}
+
+	//Dictionary word-by-word using Yandex Translate API; Dictionary aPI does not support our languages
+	dictionarySearch = () => {
+		var word = document.getElementById('search-input').value;
+		var source = document.getElementById('dictionary-from').value;
+		var target = document.getElementById('dictionary-to').value;
+
+		var self = this;
+
+		fetch('https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20171213T014034Z.e1196a425bed27ba.a17e5539b7bcc4c58f6a7935df5187d0a5a00369&text='+ 
+					word
+					+'&lang='+ source + '-' + target)
+			.then(function(response) {
+				return response.json();
+			}).then(function(data) {
+				self.setState({ data }, () => console.log(self.state));
+				var div = document.getElementById('dictionary-results');
+				div.innerHTML += word + ' (' + source + ') : ' + data.text[0] + ' (' + target + ')';
+			});
+
 	}
 
 	render() {
-		
+
 		var newLink = '/translation/' + this.props.match.params.translationid + '/confirm';
 
 		return (
@@ -122,16 +143,19 @@ export default class EditorPage extends Component {
 											<h3>Translate</h3>
 											<div id="dictionary-float">
 												<select id="dictionary-from" className="df-input classic">
-													<option value="" defaultValue>{this.state.currentTranslation.source}</option>
+													<option value={this.state.sourceCode} defaultValue>{this.state.currentTranslation.source}</option>
 												</select>
-												<select id='dictionary-t0' className="df-input classic">
-													<option value="" defaultValue>{this.state.currentTranslation.target}</option>
+												<select id='dictionary-to' className="df-input classic">
+													<option value={this.state.targetCode} defaultValue>{this.state.currentTranslation.target}</option>
 												</select>
 											</div>
 
-											<input type="text" placeholder="Search for a word..." className="dict-search" name="search" />
-											<input type="submit" value=" " className="form-submit dark-button" />
+											<input type="text" placeholder="Search for a word..." className="dict-search" id='search-input' name="search" />
+											<input type="button" value=" " className="form-submit dark-button" onClick={this.dictionarySearch} />
 										</form>
+										
+										<div id="dictionary-results" />
+										
 									</div>
 
 								</section>
