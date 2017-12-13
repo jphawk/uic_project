@@ -21,14 +21,14 @@ export default class EditorPage extends Component {
 			Romanian : 'ro'
 		};
 
-		this.state = {currentTranslation : {}, targetCode: '', sourceCode: ''};
+		this.state = {currentTranslation : {}, targetCode: '', sourceCode: '', translatedText: ''};
 
 		this.getTranslation();
 
 		//Get language codes here, to make things a bit simpler
 		this.state.sourceCode = languageCodes[this.state.currentTranslation.source];
 		this.state.targetCode = languageCodes[this.state.currentTranslation.target];
-
+		
 		this.getAutoTranslation();
 	}	
 
@@ -42,6 +42,8 @@ export default class EditorPage extends Component {
 				this.state.currentTranslation = requests[key];
 			}
 		}
+		
+		this.state.translatedText = this.state.currentTranslation.translatedText;
 	}
 
 	//AutoTranslation using Yandex API
@@ -81,10 +83,30 @@ export default class EditorPage extends Component {
 			});
 
 	}
+	
+	handleChangeTranslatedText =(event) => {
+    this.setState({translatedText: event.target.value});
+  }
+	
+	saveAndContinue = () => {
+		
+		var requests = JSON.parse(localStorage.getItem("requests"));
+
+		for (var key in requests){
+			if (requests[key].id == this.state.currentTranslation.id){			
+
+				//Correct request, update translation
+				requests[key].translatedText = this.state.translatedText;
+			}
+		}
+		
+		localStorage.setItem("requests", JSON.stringify(requests));
+		
+		this.props.history.push('/translation/' + this.props.match.params.translationid + '/confirm');
+		
+	}
 
 	render() {
-
-		var newLink = '/translation/' + this.props.match.params.translationid + '/confirm';
 
 		return (
 			<div>
@@ -162,7 +184,7 @@ export default class EditorPage extends Component {
 
 							</div>
 							<div id="edit-area">
-								<textarea placeholder="Insert your translation here">
+								<textarea placeholder="Insert your translation here"  value={this.state.translatedText} onChange={this.handleChangeTranslatedText}>
 								</textarea>
 							</div>
 						</div>
@@ -180,7 +202,7 @@ export default class EditorPage extends Component {
 
 							<div id="edit-buttons-wrapper">
 								<p>What do you want to do with this translation?</p>
-								<a className="dark-link" href={newLink} title="Save and Continue">Save and Continue</a>
+								<a className="dark-link" title="Save and Continue" onClick={this.saveAndContinue}>Save and Continue</a>
 								<a className="light-link" href="/translator" title="Cancel">Cancel</a>
 							</div>
 						</div>
