@@ -16,7 +16,7 @@ export default class Header extends Component {
 						<h2>Translator</h2>
 					</div>
 					<div id="header-right">
-						<a className="logout-link" href="/logout">Log out</a>
+						<a className="logout-link">Log out</a>
 						<p>Welcome, {localStorage.getItem("loggedInName")}!</p>
 					</div>
 				</div>

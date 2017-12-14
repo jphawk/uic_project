@@ -46,7 +46,7 @@ class App extends Component {
 			requests.push({id: 2, title: 'Email from my bank', requesterName: 'Thomas Mullerleile', 														requester: 'thomas.mullerleile@gmail.com', translator: '', translatorName: '',
 									 wordCount: 1002, pages: 2, status: 0, source: 'German', target: 'English', sample: '', fullText: 'Bereits mehr als vier Millionen Postbank Kunden haben sich für das komfortable Postbank Online-Banking entschieden. Ob zu Hause, am Arbeitsplatz oder weltweit unterwegs – mit unserem Online-Banking haben Sie jederzeit und überall direkten Zugriff auf Ihr Girokonto.', translatedText: '', description: 'It is important for me to know what documents I should provide for the first bank appointment. Please, help me with this'});
             
-            requests.push({id: 3, title: 'Email from Migri', requesterName: 'Sean Lock', 														requester: 'sean.lock@gmail.com', translator: '', translatorName: '',
+            requests.push({id: 3, title: 'Email from Migri', requesterName: 'Sean Lock', 					requester: 'sean.lock@gmail.com', translator: '', translatorName: '',
 									 wordCount: 500, pages: 1, status: 0, source: 'Finnish', target: 'English', sample: '', fullText: 'Maahanmuuttovirasto myöntää jatkoluvan, jos edellytykset, joiden perusteella sinulle myönnettiin edellinen määräaikainen oleskelulupa, ovat edelleen olemassa.', translatedText: '', description: 'There are two contact numbers in the text. Which should I use to know more about my residence permit?'});
             
             requests.push({id: 4, title: 'Request for Russian visa', requesterName: 'Sanna Lehtinen', 														requester: 'sanna.lehtinen@gmail.com', translator: '', translatorName: '',
