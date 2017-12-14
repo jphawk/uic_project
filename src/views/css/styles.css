@@ -3233,6 +3233,22 @@
 #logout-info p:last-child {
 		margin-bottom:0;
 	}
+
+.errors p {
+    margin-bottom:10px;
+    color:#f90e0e;
+    font-size:13px;
+    font-weight:bold;
+}
+
+#page-signup .errors p:last-child {
+    margin-bottom: 30px; 
+}
+
+.errors p:last-child {
+    margin-bottom:25px;
+}
+
 	
 	#tr-search-wrapper,
 	#tr-table-wrapper,
@@ -3646,7 +3662,7 @@ select.classic:focus {
 }
 
 #rq-explain {
-	margin-bottom:30px;
+	margin-bottom:20px;
 }
 
 .add-lg {
@@ -3746,6 +3762,7 @@ select.classic:focus {
 
 #edit-radio-wrapper {
     margin-top:25px;
+    display:none;
 }
 
 #edit-radio-wrapper label{
