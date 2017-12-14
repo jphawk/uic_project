@@ -14,11 +14,11 @@ export default class LoginPage extends Component {
 		
 		//validate the form fields: not empty, one email field
 		if (this.state.email === '' ){
-			this.state.errors.push("Please give your email to log in.");
+			this.state.errors.push("Please enter your email to log in.");
 		}
 		
 		if (this.state.password === ''){
-			this.state.errors.push("Please give your password to log in.");				
+			this.state.errors.push("Please enter your password to log in.");				
 		}
 		
 		if (this.state.errors.length === 0){
